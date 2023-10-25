@@ -15,7 +15,7 @@ optionsChrome = webdriver.ChromeOptions()  # Define options for chrome
 optionsChrome.add_argument("headless")  # Pass headless argument to the options (no ui)
 browser = webdriver.Chrome(options=optionsChrome)
 
-website = "http://localhost:8000"
+website = "http://127.0.0.1:8000"
 res = 1080, 1920
 
 # Runs tests in Chrome

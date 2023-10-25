@@ -11,7 +11,7 @@ optionsChrome.add_argument("headless")  # Pass headless argument to the options 
 browser = webdriver.Chrome(options=optionsChrome)
 
 # Adress to website
-website = "http://localhost:8000"
+website = "http://127.0.0.1:8000"
 # Path to product list csv file
 productListPath = "public/productList.csv"
 # Resolution on screen
