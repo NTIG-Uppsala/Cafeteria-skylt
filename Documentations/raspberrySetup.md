@@ -170,7 +170,7 @@ The autopull script will still run as intended.
                  5 10 * * * vcgencmd display_power 1
                  this will turn of HDMI output at 10:00 and start it again at 10:05
 ```
- 
+
 ### Set up temperature log:
 ```   
     1. SSH into the Raspberry pi
@@ -201,4 +201,16 @@ The autopull script will still run as intended.
 
     5. Go to the bottom of the opened document and type in the following command:
         * * * * * cd ~/Git/cafeteria-display && python3 googleSheetDownloader.py
-```   
+```
+
+### Pip install gspread and oauth2client
+
+If you have a new RaspberryPi os you may have to remove the externally-managed file using this command:
+``` 
+    sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+``` 
+``` 
+    1. In the CMD type "python -m pip install gspread" to install gspread
+
+    2. In the CMD type "python -m install gspread oauth2client" to install oauth2client
+``` 
