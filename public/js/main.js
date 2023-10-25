@@ -149,17 +149,11 @@ function getMenuHelper(data) {
         newMenuSlide(container);
     }
 }
+// Runs get menu with data from productList.csv
 function getMenu() {
     $.ajax({
         type: 'GET',
-        // The server address for Windows
-        url: "http://localhost:8000/productList.csv",
-        success: function (data) { getMenuHelper(data) }
-    });
-    $.ajax({
-        type: 'GET',
-        // The server address for Linux
-        url: "http://0.0.0.0:8000/productList.csv",
+        url: "http://127.0.0.1:8000/productList.csv",
         success: function (data) { getMenuHelper(data) }
     });
 }
@@ -214,18 +208,11 @@ function getOpeningHoursHelper(data) {
     };
 }
 
-// Gets csv file either on windows or linus 
+// Runs getImageSlide() with data from imageList.csv
 function getImageSlide(){
     $.ajax({
         type: 'GET',
-        // The server address for Windows
-        url: "http://localhost:8000/imageList.csv",
-        success: function (data) { helperGetImageSlide(data) }
-    });
-    $.ajax({
-        type: 'GET',
-        // The server address for Linux
-        url: "http://0.0.0.0:8000/imageList.csv",
+        url: "http://127.0.0.1:8000/imageList.csv",
         success: function (data) { helperGetImageSlide(data) }
     });
 }
@@ -278,18 +265,11 @@ function helperGetImageSlide(data){
         }
 }};
 
-// Runs getOpeningHours() depending on the os
+// Runs getOpeningHours() with data from openHoursList.csv
 function getOpeningHours() {
     $.ajax({
         type: 'GET',
-        // The server address for Windows
-        url: "http://localhost:8000/openHoursList.csv",
-        success: function (data) { getOpeningHoursHelper(data) }
-    });
-    $.ajax({
-        type: 'GET',
-        // The server address for Linux
-        url: "http://0.0.0.0:8000/openHoursList.csv",
+        url: "http://127.0.0.1:8000/openHoursList.csv",
         success: function (data) { getOpeningHoursHelper(data) }
     });
 }

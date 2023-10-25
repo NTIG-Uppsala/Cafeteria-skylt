@@ -6,5 +6,5 @@
 @xset s noblank
 @xset s off
 @python3 /home/pi/Git/cafeteria-display/RaspberryPi/configuration/startServer.py
-@chromium-browser --kiosk --new-window http://0.0.0.0:8000 --incognito
+@chromium-browser --kiosk --new-window http://127.0.0.1:8000 --incognito
 @unclutter -idle 3
