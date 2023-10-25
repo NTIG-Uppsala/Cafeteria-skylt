@@ -68,7 +68,7 @@ function makeNewCategory(category, itemDiv, priceDiv, items, i) {
     // Creates a new div for the items and prices
     category = document.createElement("div");
     category.className = "row mb-5 mt-5";
-    // paddingDiv creates a div that is 2 columns wide
+    // PaddingDiv creates a div that is 2 columns wide
     let paddingDiv = document.createElement("div");
     paddingDiv.className = "col-2";
     let productDiv = document.createElement("div");
@@ -184,7 +184,7 @@ function tempClose(reason) {
     const reasoning = document.createElement("p");
     reasoning.className = "openHours";
     let reasoningText = document.createTextNode("");
-    // if there are a reason write it out
+    // If there are a reason write it out
     if (reason != "\r") {
         reasoningText = document.createTextNode('På grund av ' + reason);
     };
@@ -240,9 +240,9 @@ function helperGetImageSlide(data){
     const carousel = document.getElementById("menu");
     // This loops through the slides 
     for (let currentSlide = 1; currentSlide < imageList[4].length; currentSlide++) {
-        // checks if slide should be shown or not 
+        // Checks if slide should be shown or not 
         if (imageList[4][currentSlide] === "TRUE" || imageList[4][currentSlide] === "TRUE\r") {
-            // genererates HTML code for slides
+            // Genererates HTML code for slides
             const imageSlide = document.createElement("div");
             imageSlide.className = "carousel-item slide";
             imageSlide.setAttribute("data-interval", "5000");
