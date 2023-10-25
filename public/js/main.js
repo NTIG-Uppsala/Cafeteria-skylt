@@ -249,7 +249,7 @@ function helperGetImageSlide(data){
             imageSlide.setAttribute("style", "background-color: #190f27;");
             const productImage = document.createElement("img");
             productImage.className = "productSlide productImage";  
-            productImage.setAttribute("referrerPolicy", "no-referrer"); // enables loading of google user content images 
+            productImage.setAttribute("referrerPolicy", "no-referrer"); // Enables loading of google user content images 
             productImage.setAttribute("src", `${imageList[2][currentSlide]}`);
             productImage.setAttribute("height", "700");
             const dotImage = document.createElement("img")
