@@ -18,6 +18,7 @@ browser = webdriver.Chrome(options=optionsChrome)
 website = "http://127.0.0.1:8000"
 res = 1080, 1920
 
+
 # Runs tests in Chrome
 class TestScreenshots(unittest.TestCase):
     @classmethod

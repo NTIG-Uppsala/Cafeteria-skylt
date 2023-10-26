@@ -76,6 +76,7 @@ class TestValidate(TestCase):
                 f"{failed_validations_count} files failed validation. See above for details."
             )
 
+
 # Starts test if run as python file
 if __name__ == "__main__":
     main(verbosity=2)

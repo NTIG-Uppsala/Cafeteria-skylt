@@ -17,6 +17,7 @@ productListPath = "public/productList.csv"
 # Resolution on screen
 res = 1080, 1920
 
+
 # Runs tests in Chrome
 class TestProducts(unittest.TestCase):
     @classmethod
@@ -28,15 +29,18 @@ class TestProducts(unittest.TestCase):
     def testProductList(self):
         # Creates an array with the product data from the csv file
         menuList = []
-        with open(productListPath, encoding='utf-8', newline='') as products:
-            lines = csv.reader(products, delimiter=',', quotechar='|')
+        with open(productListPath, encoding="utf-8", newline="") as products:
+            lines = csv.reader(products, delimiter=",", quotechar="|")
             for row in lines:
                 menuList.append(row)
         # Checks if every item set to TRUE is in the page source code
-        for categoryIndex in range(round(len(menuList)/4)):
+        for categoryIndex in range(round(len(menuList) / 4)):
             for itemIndex in range(len(menuList[2 + 4 * categoryIndex])):
                 if menuList[2 + 4 * categoryIndex][itemIndex] == "TRUE":
-                    self.assertIn(menuList[0 + 4 * categoryIndex][itemIndex], self.browser.page_source)
+                    self.assertIn(
+                        menuList[0 + 4 * categoryIndex][itemIndex],
+                        self.browser.page_source,
+                    )
 
     # Closes the window after all the tests are done
     @classmethod
