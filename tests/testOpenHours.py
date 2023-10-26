@@ -18,6 +18,7 @@ productListPath = "public/openHoursList.csv"
 # Resolution on screen
 res = 1080, 1920
 
+
 # Runs tests in Chrome
 class TestOpenHours(unittest.TestCase):
     @classmethod
@@ -31,15 +32,18 @@ class TestOpenHours(unittest.TestCase):
         menuList = []
         isClosed = False
         booleanCount = 0
-        with open(productListPath, encoding='utf-8', newline='') as products:
-            lines = csv.reader(products, delimiter=',', quotechar='|')
+        with open(productListPath, encoding="utf-8", newline="") as products:
+            lines = csv.reader(products, delimiter=",", quotechar="|")
             for row in lines:
                 menuList.append(row)
         # Check correct reason for closing if temporarily closed
         for categoryIndex in range(len(menuList)):
             for itemIndex in range(len(menuList[categoryIndex])):
                 if menuList[categoryIndex][itemIndex] == "TRUE":
-                    self.assertIn(menuList[categoryIndex + 1][itemIndex], self.browser.find_element(By.CLASS_NAME,'openHours').text)
+                    self.assertIn(
+                        menuList[categoryIndex + 1][itemIndex],
+                        self.browser.find_element(By.CLASS_NAME, "openHours").text,
+                    )
                     isClosed = True
                     booleanCount += 1
                 if menuList[categoryIndex][itemIndex] == "FALSE":
@@ -51,9 +55,15 @@ class TestOpenHours(unittest.TestCase):
             for categoryIndex in range(len(menuList)):
                 for itemIndex in range(len(menuList[categoryIndex])):
                     if menuList[categoryIndex][itemIndex] == "Före lunch":
-                        self.assertIn(menuList[categoryIndex][itemIndex + 1], self.browser.find_element(By.ID,'openHours').text)
+                        self.assertIn(
+                            menuList[categoryIndex][itemIndex + 1],
+                            self.browser.find_element(By.ID, "openHours").text,
+                        )
                     if menuList[categoryIndex][itemIndex] == "Efter lunch":
-                        self.assertIn(menuList[categoryIndex][itemIndex + 1], self.browser.find_element(By.ID,'openHours').text)
+                        self.assertIn(
+                            menuList[categoryIndex][itemIndex + 1],
+                            self.browser.find_element(By.ID, "openHours").text,
+                        )
 
     # Closes the window after all the tests are done
     @classmethod

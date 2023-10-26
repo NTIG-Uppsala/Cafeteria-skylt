@@ -28,7 +28,7 @@ with open("public/productList.csv", "w", encoding="utf8") as file:
 with open("public/imageList.csv", "w", encoding="utf8") as file:
     for row in csvImageSlide:
         file.write(",".join(row) + "\n")
-    
+
 with open("public/openHoursList.csv", "w", encoding="utf8") as file:
     for row in csvOpenHours:
         file.write(",".join(row) + "\n")

@@ -25,5 +25,5 @@ with open("temperature_data.csv", "a") as file:
 
 
 # If the temperature is above 80 degrees celsius, reboot the system
-if match >= 80 :
+if match >= 80:
     os.system("sudo reboot")
