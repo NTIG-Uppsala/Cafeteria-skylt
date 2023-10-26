@@ -237,7 +237,7 @@ function helperGetImageSlide(data){
             const productImage = document.createElement("img");
             productImage.className = "productSlide productImage";  
             productImage.setAttribute("referrerPolicy", "no-referrer"); // Enables loading of google user content images 
-            productImage.setAttribute("src", `${imageList[2][currentSlide]}`);
+            productImage.setAttribute("src", `images/products/${imageList[2][currentSlide]}.png`);
             productImage.setAttribute("height", "700");
             const dotImage = document.createElement("img")
             dotImage.className = "productSlide dot";
