@@ -9,7 +9,6 @@ git clone https://github.com/NTIG-Uppsala/cafeteria-display.git
 ```
 - Visual Studio Code - (Version 1.83.0)
 - Google Chrome - (Version 117.0.5938.134)
-- Microsoft Edge - (Version 117.0.2045.60)
 
 ***
 
