@@ -1,6 +1,22 @@
 
 # Tips
 
+## Using the correct resolution
+
+This project is based on a 1080 x 1920 resolution 
+
+To view the website on this resolution use the inspect tool by pressing right click on website
+
+![Inspekt image](images/inspectImg.png)
+
+Then click on this icon to change to your desired resolution
+
+![Res image](images/click.png)
+
+Then change to the right resolution
+
+![Input image](images/resInput.png)
+
 ## data-interval
 ```
 data-interval="10000" determines how many milliseconds have to pass before it changes to the next slide, 10000ms is 10 seconds
