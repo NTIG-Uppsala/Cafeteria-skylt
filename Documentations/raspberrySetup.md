@@ -212,5 +212,5 @@ If you have a new RaspberryPi os you may have to remove the externally-managed f
 ``` 
     1. In the CMD type "python -m pip install gspread" to install gspread
 
-    2. In the CMD type "python -m install gspread oauth2client" to install oauth2client
+    2. In the CMD type "python -m pip install oauth2client" to install oauth2client
 ``` 
