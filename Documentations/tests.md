@@ -12,3 +12,6 @@
 ![Unittest](../Documentations/images/chooseDirectory.jpg)
 * Lastly choose "test*.py" so that all files beginning their name with test will be run as demonstrated below:<br> <br>
 ![Test naming](../Documentations/images/testNaming.jpg)
+# Before running tests
+* Make sure that [googleSheetDownloader.py](../googleSheetDownloader.py) has been run
+* Run [startServer.py](../RaspberryPi/configuration/startServer.py) and keep it running during testing
