@@ -37,7 +37,7 @@
 2. Enter the Raspberry Pi user credentials. You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
     ```
     Follow this link to get the user credentials: 
-    https://docs.google.com/document/d/1SUe4ZNsMlTVBhxBQVailkA7dKPcHfWlFOePT7x4WjLk/edit
+    https://docs.google.com/document/d/1YBDG4wcsMQ5bQ_GXvfvEGvHv2n3K4r0YC5Mz17dX0Qk/edit
     ```
 ### Connect to the Raspberry Pi using SSH
 
@@ -48,7 +48,7 @@
 2. Enter the Raspberry Pi user credentials. You shall now be able to remote access your Raspberry Pi from this workstation.
     ```
     Follow this link to get the user credentials(you may need permission): 
-    https://docs.google.com/document/d/1SUe4ZNsMlTVBhxBQVailkA7dKPcHfWlFOePT7x4WjLk/edit
+    https://docs.google.com/document/d/1YBDG4wcsMQ5bQ_GXvfvEGvHv2n3K4r0YC5Mz17dX0Qk/edit
     ```
 ### Configuration
  
