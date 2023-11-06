@@ -17,7 +17,7 @@ function addZeroUpTo10(i) {
     return i;
 }
 
-// Shows todays date and year on the website
+// Shows todays weekday and date on the website
 function getDate(date) {
     const day = date.getDay();
     const weekdayName = daysOfWeek[day];
