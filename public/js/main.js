@@ -99,9 +99,9 @@ function getMenuHelper(data) {
     // Divides by four because each category takes up four lines
     let productCategoryCount = menuList.length / 4;
     // This loops through the categories
-    for (let foodCategory = 0; foodCategory < productCategoryCount; foodCategory++) {
+    for (let productCategory = 0; productCategory < productCategoryCount; productCategory++) {
         // List of booleans for each category
-        const productVisibilityList = menuList[2 + foodCategory * 4];
+        const productVisibilityList = menuList[2 + productCategory * 4];
         let headerHasBeenMade = false;
         let section, itemDiv, priceDiv;
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
@@ -117,10 +117,10 @@ function getMenuHelper(data) {
                 }
                 // This happens if no header has been made, it makes a new section
                 if (!headerHasBeenMade) {
-                    section = makeNewCategory(section, itemDiv, priceDiv, menuList, foodCategory)[0];
-                    productDiv = makeNewCategory(section, itemDiv, priceDiv, menuList, foodCategory)[1];
-                    itemDiv = makeNewCategory(section, itemDiv, priceDiv, menuList, foodCategory)[2];
-                    priceDiv = makeNewCategory(section, itemDiv, priceDiv, menuList, foodCategory)[3];
+                    section = makeNewCategory(section, itemDiv, priceDiv, menuList, productCategory)[0];
+                    productDiv = makeNewCategory(section, itemDiv, priceDiv, menuList, productCategory)[1];
+                    itemDiv = makeNewCategory(section, itemDiv, priceDiv, menuList, productCategory)[2];
+                    priceDiv = makeNewCategory(section, itemDiv, priceDiv, menuList, productCategory)[3];
                     productDiv.appendChild(itemDiv);
                     section.appendChild(productDiv);
                     section.appendChild(priceDiv);
@@ -128,8 +128,8 @@ function getMenuHelper(data) {
                     counter += 2;
                 }
                 // This gets the item and price and adds it to the item/price div
-                itemDiv.appendChild(getItemAndPrice(menuList, foodCategory, itemIndex)[0]);
-                priceDiv.appendChild(getItemAndPrice(menuList, foodCategory, itemIndex)[1]);
+                itemDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[0]);
+                priceDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[1]);
                 counter += 1;
                 // If counter is 24 or bigger it makes a new slide
                 if (counter >= 24) {
