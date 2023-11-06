@@ -15,23 +15,20 @@
 - JavaScript
 - HTML5
 - CSS3
-- Python3 (for testing)
+- Python 3.11.5
 
 ### Frameworks: (Compiled CSS and JS)
 - [jQuery 3.3.1](https://jquery.com/download/)
 - [Bootstrap 4.3.1.](https://getbootstrap.com/docs/4.3/getting-started/download/)
 
-### Plugins:
-For testing
-```
-Unittest
+### Python plugins:
+- oauth2client 4.1.3
+- gspread 5.11.3
 
-Selenium 4.13.0				
-pip install selenium==4.13.0
-
-Requests 2.31.0
-pip install requests 
-```
+### Plugins for testing:
+- Unittest
+- Selenium 4.13.0
+- Requests 2.31.0
 
 ***
 
