@@ -3,13 +3,9 @@
 ## Development Environments
 
 - Windows 10 Education
-- [GitBash 2.42.0 64-bit](https://git-scm.com/download/win) -> Type in these commands in GitBash to clone down the files onto your computer:
-```
-git clone https://github.com/NTIG-Uppsala/cafeteria-display.git
-```
+- GitHub Desktop
 - Visual Studio Code - (Version 1.83.0)
 - Google Chrome - (Version 117.0.5938.134)
-- Microsoft Edge - (Version 117.0.2045.60)
 
 ***
 
@@ -19,23 +15,20 @@ git clone https://github.com/NTIG-Uppsala/cafeteria-display.git
 - JavaScript
 - HTML5
 - CSS3
-- Python3 (for testing)
+- Python 3.11.5
 
 ### Frameworks: (Compiled CSS and JS)
 - [jQuery 3.3.1](https://jquery.com/download/)
 - [Bootstrap 4.3.1.](https://getbootstrap.com/docs/4.3/getting-started/download/)
 
-### Plugins:
-For testing
-```
-Unittest
+### Python plugins:
+- oauth2client 4.1.3
+- gspread 5.11.3
 
-Selenium 4.13.0				
-pip install selenium==4.13.0
-
-Requests 2.31.0
-pip install requests 
-```
+### Plugins for testing:
+- Unittest
+- Selenium 4.13.0
+- Requests 2.31.0
 
 ***
 

@@ -1,25 +1,21 @@
 
 # Tips
 
-## How to add a slide:
+## Using the correct resolution
 
-```html
-	<div class="carousel-item slide" data-interval="5000" style="background-color: #190f27;">
-		<img src="images/toast2NoBoard.png" alt="..." class="productSlide productImage">
-		<img src="images/dot.png" alt="..." class="productSlide dot">
-		<img src="images/money-dot.png" alt="..." class="productSlide moneyDot">
-		<div class="carousel-caption d-none d-md-block productPrice">
-			<p class="itemText">Toast</p>
-			<p class="price">20 kr</p>
-		</div>
+This project is based on a 1080 x 1920 resolution 
 
-	</div>
-```
+To view the website on this resolution use the inspect tool by pressing right click on website
 
-The first div-tag tells you that this is a slide (class="carousel-item slide"), everything within this tag is a part of the slide.
+![Inspekt image](images/inspectImg.png)
 
-To create a new slide, copy the code above and put it under the existing "carousel-item" <br>
-Note: Images should have a width between 950-1000px and a height of 600-700px.
+Then click on this icon to change to your desired resolution
+
+![Res image](images/click.png)
+
+Then change to the right resolution
+
+![Input image](images/resInput.png)
 
 ## data-interval
 ```

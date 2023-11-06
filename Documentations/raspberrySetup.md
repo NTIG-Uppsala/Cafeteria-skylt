@@ -37,7 +37,7 @@
 2. Enter the Raspberry Pi user credentials. You shall now be able to remote access your Raspberry Pi from this workstation or any other devices with VNC Viewer configured.
     ```
     Follow this link to get the user credentials: 
-    https://docs.google.com/document/d/1SUe4ZNsMlTVBhxBQVailkA7dKPcHfWlFOePT7x4WjLk/edit
+    https://docs.google.com/document/d/1YBDG4wcsMQ5bQ_GXvfvEGvHv2n3K4r0YC5Mz17dX0Qk/edit
     ```
 ### Connect to the Raspberry Pi using SSH
 
@@ -48,7 +48,7 @@
 2. Enter the Raspberry Pi user credentials. You shall now be able to remote access your Raspberry Pi from this workstation.
     ```
     Follow this link to get the user credentials(you may need permission): 
-    https://docs.google.com/document/d/1SUe4ZNsMlTVBhxBQVailkA7dKPcHfWlFOePT7x4WjLk/edit
+    https://docs.google.com/document/d/1YBDG4wcsMQ5bQ_GXvfvEGvHv2n3K4r0YC5Mz17dX0Qk/edit
     ```
 ### Configuration
  
@@ -188,6 +188,30 @@ The autopull script will still run as intended.
     * Temperature logger will restart the raspberry pi if temperature rises over 80°C
 ```   
 
+### Set up Google service account:
+
+#### If there exists an active service account:
+
+1. Download the serviceAccount.json from the [Google Drive](https://drive.google.com/drive/folders/1Yf2ABcoPqGIK5E88mXdyQchkGVjTMYVt)
+
+2.  Add the serviceAccount.json to the root folder of the project
+
+#### If there is no active service account:
+
+Follow the guide to [create a service account](serviceAccount.md)
+
+### Pip install gspread and oauth2client
+
+If you have a new RaspberryPi os you may have to remove the externally-managed file using this command:
+``` 
+    sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+``` 
+``` 
+    1. In the CMD type "python -m pip install gspread" to install gspread
+
+    2. In the CMD type "python -m pip install oauth2client" to install oauth2client
+``` 
+
 ### Set up Google Sheets sheet downloader:
 ```   
     1. SSH into the Raspberry pi
@@ -202,15 +226,3 @@ The autopull script will still run as intended.
     5. Go to the bottom of the opened document and type in the following command:
         * * * * * cd ~/Git/cafeteria-display && python3 googleSheetDownloader.py
 ```
-
-### Pip install gspread and oauth2client
-
-If you have a new RaspberryPi os you may have to remove the externally-managed file using this command:
-``` 
-    sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
-``` 
-``` 
-    1. In the CMD type "python -m pip install gspread" to install gspread
-
-    2. In the CMD type "python -m install gspread oauth2client" to install oauth2client
-``` 
