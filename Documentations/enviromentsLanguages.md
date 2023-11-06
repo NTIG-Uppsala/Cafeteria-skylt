@@ -3,10 +3,7 @@
 ## Development Environments
 
 - Windows 10 Education
-- [GitBash 2.42.0 64-bit](https://git-scm.com/download/win) -> Type in these commands in GitBash to clone down the files onto your computer:
-```
-git clone https://github.com/NTIG-Uppsala/cafeteria-display.git
-```
+- GitHub Desktop
 - Visual Studio Code - (Version 1.83.0)
 - Google Chrome - (Version 117.0.5938.134)
 
