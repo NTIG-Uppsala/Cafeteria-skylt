@@ -96,8 +96,10 @@ function getMenuHelper(data) {
     let container = resetContainer();
     // This counts items on the slide to make sure it fits
     let counter = 0;
-    // This loops through the categories 
-    for (let foodCategory = 0; foodCategory < menuList.length / 4; foodCategory++) {
+    // Divides by four because each category takes up four lines
+    let productCategoryCount = menuList.length / 4;
+    // This loops through the categories
+    for (let foodCategory = 0; foodCategory < productCategoryCount; foodCategory++) {
         // List of booleans for each category
         const productVisibilityList = menuList[2 + foodCategory * 4];
         let headerHasBeenMade = false;
