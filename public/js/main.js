@@ -163,6 +163,7 @@ function getMenu() {
 // if 10 minutes has passed, then refresh site on opening hours slide to get updates
 $('#open').on('slide.bs.carousel', function (event) {
     if (willRefresh) {
+        //It checks if the slide has the class 'refreshSlide' and if it does then it reloads the current page
         if ($(event.relatedTarget).hasClass('refreshSlide')) {
             location.reload();
         }
