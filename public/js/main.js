@@ -31,6 +31,7 @@ function newMenuSlide(container) {
     // Creates a new div for the slide and adds classes and attributes
     const slide = document.createElement("div");
     slide.className = "carousel-item slide";
+    // Sets the duration of the slide to 10 seconds
     slide.setAttribute("data-interval", "10000");
     slide.setAttribute("style", "background-color: #190f27;");
     // SlideCaption adds the div that the container is in
