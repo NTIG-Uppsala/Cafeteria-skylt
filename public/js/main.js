@@ -99,13 +99,13 @@ function getMenuHelper(data) {
     // This loops through the categories 
     for (let foodCategory = 0; foodCategory < menuList.length / 4; foodCategory++) {
         // List of booleans for each category
-        const booleanList = menuList[2 + foodCategory * 4];
+        const productVisibilityList = menuList[2 + foodCategory * 4];
         let headerHasBeenMade = false;
         let section, itemDiv, priceDiv;
-        for (let itemIndex = 0; itemIndex < booleanList.length; itemIndex++) {
-            if (booleanList[itemIndex] === "FALSE") {
+        for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
+            if (productVisibilityList[itemIndex] === "FALSE") {
                 continue;
-            } else if (booleanList[itemIndex] === "TRUE" || booleanList[itemIndex] === "TRUE\r") {
+            } else if (productVisibilityList[itemIndex] === "TRUE" || productVisibilityList[itemIndex] === "TRUE\r") {
                 // This makes a new slide if the if() statement is true
                 if (!headerHasBeenMade && counter >= 22) {
                     newMenuSlide(container);
