@@ -17,6 +17,13 @@ Then change to the right resolution
 
 ![Input image](images/resInput.png)
 
+## Developer controls
+Controls used to change between slides
+
+* To use the developer controls click the right or left side of the screen
+
+* When the developer controls have been activated by clicking, arrow keys can also be used.
+
 ## data-interval
 ```
 data-interval="10000" determines how many milliseconds have to pass before it changes to the next slide, 10000ms is 10 seconds
