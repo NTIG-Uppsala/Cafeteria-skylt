@@ -21,7 +21,7 @@ function addZeroUpTo10(i) {
 function getDate(date) {
     const day = date.getDay();
     const weekdayName = daysOfWeek[day];
-    // Changes date to swedish format
+    // Changes date to Swedish format
     date = date.toLocaleDateString("sv-SE");
     document.getElementById("day").innerHTML = weekdayName;
     document.getElementById("date").innerHTML = date;
