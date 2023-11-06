@@ -277,20 +277,20 @@ function getOpeningHours() {
 }
 
 // Runs getTime() every 5 seconds
-var intervalDate = window.setInterval(function () {
+window.setInterval(function () {
     getTime(new Date());
 }, 1000 * 5)
 getTime(new Date());
 
 // Runs getDate() every hour
-var intervalDate = window.setInterval(function () {
+window.setInterval(function () {
     getDate(new Date());
 }, 1000 * 60 * 60)
 getDate(new Date());
 
 let willRefresh = false
 
-var refreshSite = window.setInterval(function () {
+window.setInterval(function () {
     if (isClosed) {
         location.reload();
     }
