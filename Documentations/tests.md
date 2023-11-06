@@ -1,6 +1,7 @@
 # Selenium
 * In VS Code open the terminal
 * Input "py -m pip install selenium"
+* Input "py -m pip install requests"
 * While having the test.py open in VS Code open the testing tab as illustrated in the image below: <br> <br>
 ![Test setup](../Documentations/images/testSetup.jpg)
 * If you are unable to find the testing tab go to "view" at the top of VS Code and press testing as shown below <br> <br>
