@@ -6,13 +6,13 @@ function getTime(date) {
     let h = date.getHours();
     let m = date.getMinutes();
 
-    m = checkTime(m);
-    h = checkTime(h);
+    h = addZeroUpTo10(h);
+    m = addZeroUpTo10(m);
 
     document.getElementById("clock").innerHTML = h + ":" + m;
 }
 
-function checkTime(i) {
+function addZeroUpTo10(i) {
     if (i < 10) { i = "0" + i }; //Adds a zero infront of numbers < 10
     return i;
 }
