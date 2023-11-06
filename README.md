@@ -15,6 +15,10 @@ The Raspberry Pi gets the menu and items from a Google Spreadsheets sheet where 
 ## Environments and Languages 
 [Documentation](Documentations/enviromentsLanguages.md)
 
+## Local development environment
+
+[Instructions](Documentations/localSetup.md)
+
 ## Tests
 
 There are automated tests made with selenium. 
