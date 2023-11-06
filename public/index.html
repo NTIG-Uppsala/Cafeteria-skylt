@@ -3,6 +3,7 @@
 <html lang="sv">
 
 <head>
+
 	<meta charset="utf-8">
 	<title>Prislista</title>
 
@@ -21,6 +22,8 @@
 </head>
 
 <body>
+
+	<!-- Page header -->
 	<nav class="navbar" style="background-color: #190f27; height: 5vh;">
 		<a class="navbar-brand" href="#">
 			<img src="images/ntiLogoTransparent.png" width="258" height="60" alt="">
@@ -29,12 +32,15 @@
 			<img src="images/te4LogoTransparent.png" height="60" alt="">
 		</a>
 	</nav>
+
+	<!-- Animated background -->
 	<div class="container layer1"></div>
 	<div class="container layer2"></div>
 	<div class="container layer3"></div>
+
+	<!-- Carousel -->
 	<div class="carousel slide" data-ride="carousel" id="open">
 		<div class="carousel-inner" id="menu">
-
 			<div class="carousel-item slide active refreshSlide" data-interval="10000"
 				style="background-color: #190f27;">
 				<div class="carousel-caption d-none d-md-block" id="cafeteria">
@@ -46,6 +52,7 @@
 					</p>
 				</div>
 			</div>
+
 			<!-- Dev controls -->
 			<button class="carousel-control-prev" type="button" data-target="#open" data-slide="prev"
 				style="opacity: 0%;">
@@ -55,13 +62,14 @@
 			</button>
 		</div>
 	</div>
-	<!-- Time, date and day of week  -->
-	<p id="clock"> 00:00 </p>
-	<p id="day"> Måndag </p>
-	<p id="date"> 2000-01-01 </p>
 
+	<!-- Time, date and day of week  -->
+	<p id="clock"></p>
+	<p id="day"></p>
+	<p id="date"></p>
 
 	<script src="js/main.js"></script>
+
 </body>
 
 </html>
