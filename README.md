@@ -12,13 +12,8 @@ The Raspberry Pi gets the menu and items from a Google Spreadsheets sheet where 
 
 ![Cafeteria-skylten](Documentations/images/cafeteriaDisplay.png)
 
-## Useful configuration tips
-
-[Tips](Documentations/configuration.md)
-
-## Licence
-
-[Licences](Documentations/licence.md)
+## Environments and Languages 
+[Documentation](Documentations/enviromentsLanguages.md)
 
 ## Tests
 
@@ -33,13 +28,14 @@ There are automated tests made with selenium.
 
 [Configure autostart](Documentations/autostart.md)
 
+## Useful configuration tips
 
-***
+[Tips](Documentations/configuration.md)
 
-## Environments and Languages 
-[Documentation](Documentations/enviromentsLanguages.md)
-
-***
 ## Service acount
 
 [Create service account](Documentations/serviceAccount.md)
+
+## Licence
+
+[Licences](Documentations/licence.md)
