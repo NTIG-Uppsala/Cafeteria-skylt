@@ -1,12 +1,3 @@
-// Runs getOpeningHours() with data from openHoursList.csv
-function getOpeningHours() {
-    $.ajax({
-        type: 'GET',
-        url: "http://127.0.0.1:8000/openHoursList.csv",
-        success: function (data) { getOpeningHoursHelper(data) }
-    });
-}
-
 function tempClose(reason) {
     // This removes the opening hours and adds a message that the cafeteria is closed
     const openingHoursSlide = document.getElementById("cafeteria");
