@@ -139,8 +139,9 @@ function getMenuHelper(data) {
                 itemDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[0]);
                 priceDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[1]);
                 currentLineCounter += itemHeightInLines;
-                // If counter is 24 or bigger it makes a new slide
                 if (currentLineCounter > maxLinesAllowedForNewItem) {
+                    // This makes a new slide
+                    // The current section/header is saved to continue on the new slide
                     container.appendChild(section);
                     newMenuSlide(container);
                     container = resetContainer();
