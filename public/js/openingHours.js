@@ -26,9 +26,6 @@ function tempClose(reason) {
     reasoning.appendChild(reasoningText);
     openingHoursSlide.appendChild(reasoning);
     isClosed = true;
-    // Pauses the carousel
-    $(".carousel").carousel('pause');
-
 }
 
 function getOpeningHoursHelper(data) {

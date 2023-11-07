@@ -8,6 +8,10 @@ function getImageSlide(){
 }
 
 function helperGetImageSlide(data){
+    // Hinders the creation of image slides if closed
+    if (isClosed) {
+        return;
+    }
     // This splits data into lists
     const rows = data.split("\n");
     let rawImageList = rows.map(row => row.split(','));

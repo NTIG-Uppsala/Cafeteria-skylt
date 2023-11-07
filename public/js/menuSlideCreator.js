@@ -76,6 +76,10 @@ function makeNewCategory(category, itemDiv, priceDiv, items, i) {
 
 // This creates slides for the menu
 function getMenuHelper(data) {
+    // Hinders the creation of menu slides if closed
+    if (isClosed) {
+        return;
+    }
     // This splits data into lists
     const rows = data.split("\n");
     let rawMenuList = rows.map(row => row.split(','));
