@@ -52,7 +52,7 @@ function newMenuSlide(container) {
 
 
 function resetContainer() {
-    // Makes container epmty
+    // Makes container empty
     container = document.createElement("div");
     container.className = "container";
     return container;
