@@ -14,7 +14,7 @@ let openHoursListPath = urlParams.has('openHours') ? urlParams.get('openHours') 
 function getImageSlide(){
     $.ajax({
         type: 'GET',
-        url: "http://127.0.0.1:8000/" + imageListPath,
+        url: "http://127.0.0.1:8000/csv/" + imageListPath,
         success: function (data) { helperGetImageSlide(data) }
     });
 }
@@ -23,7 +23,7 @@ function getImageSlide(){
 function getOpeningHours() {
     $.ajax({
         type: 'GET',
-        url: "http://127.0.0.1:8000/" + openHoursListPath,
+        url: "http://127.0.0.1:8000/csv/" + openHoursListPath,
         success: function (data) { getOpeningHoursHelper(data) }
     });
 }
@@ -32,7 +32,7 @@ function getOpeningHours() {
 function getMenu() {
     $.ajax({
         type: 'GET',
-        url: "http://127.0.0.1:8000/" + productListPath,
+        url: "http://127.0.0.1:8000/csv/" + productListPath,
         success: function (data) { getMenuHelper(data) }
     });
 }
