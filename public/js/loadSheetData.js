@@ -2,11 +2,13 @@ const queryString = window.location.search;
 
 const urlParams = new URLSearchParams(queryString);
 
-const productListDefault = "productList.csv"
+const productListDefault = "productList.csv";
+const imageListDefault = "imageList.csv";
+const openHoursListDefault = "openHoursList.csv";
 
 let productList = urlParams.has('products') ? urlParams.get('products') : productListDefault;
-let imageList = urlParams.has('images') ? urlParams.get('images') : imageList = "imageList.csv";
-let openHoursList = urlParams.has('openHours') ? urlParams.get('openHours') : openHoursList = "openHoursList.csv";
+let imageList = urlParams.has('images') ? urlParams.get('images') : imageListDefault;
+let openHoursList = urlParams.has('openHours') ? urlParams.get('openHours') : openHoursListDefault;
 
 // Runs getImageSlide() with data from imageList.csv
 function getImageSlide(){
