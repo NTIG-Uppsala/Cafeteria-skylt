@@ -1,6 +1,11 @@
 const daysOfWeek = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"]
 let isClosed = false;
 
+// Base value of the height of an item counted in lines
+const itemHeightInLines = 1;
+// A value that should roughly reflect how many times greater the height of a header is compared to an item's height
+const headerHeightInLines = 2 * itemHeightInLines;
+
 //Shows the clock on the website
 function getTime(date) {
     let h = date.getHours();
@@ -96,7 +101,7 @@ function getMenuHelper(data) {
     const menuList = rawMenuList.map(row => row.filter(value => value !== ""));
     let container = resetContainer();
     // This counts items on the slide to make sure it fits
-    let counter = 0;
+    let currentLineCounter = 0;
     // Divides by four because each category takes up four lines
     let productCategoryCount = menuList.length / 4;
     // This loops through the categories
@@ -104,15 +109,17 @@ function getMenuHelper(data) {
         // List of booleans for each category
         const productVisibilityList = menuList[2 + productCategory * 4];
         let headerHasBeenMade = false;
+        const maxLinesAllowedForNewItem = 23 * itemHeightInLines;
+        const maxLinesAllowedForNewHeader = maxLinesAllowedForNewItem - headerHeightInLines;
         let section, itemDiv, priceDiv;
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
             if (productVisibilityList[itemIndex] === "FALSE") {
                 continue;
             } else if (productVisibilityList[itemIndex] === "TRUE" || productVisibilityList[itemIndex] === "TRUE\r") {
-                // This makes a new slide if the if() statement is true
-                if (!headerHasBeenMade && counter >= 22) {
+                if (!headerHasBeenMade && currentLineCounter > maxLinesAllowedForNewHeader) {
+                    // This makes a new slide
                     newMenuSlide(container);
-                    counter = 0;
+                    currentLineCounter = 0;
                     headerHasBeenMade = false;
                     container = resetContainer();
                 }
@@ -126,18 +133,18 @@ function getMenuHelper(data) {
                     section.appendChild(productDiv);
                     section.appendChild(priceDiv);
                     headerHasBeenMade = true;
-                    counter += 2;
+                    currentLineCounter += headerHeightInLines;
                 }
                 // This gets the item and price and adds it to the item/price div
                 itemDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[0]);
                 priceDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[1]);
-                counter += 1;
+                currentLineCounter += itemHeightInLines;
                 // If counter is 24 or bigger it makes a new slide
-                if (counter >= 24) {
+                if (currentLineCounter > maxLinesAllowedForNewItem) {
                     container.appendChild(section);
                     newMenuSlide(container);
                     container = resetContainer();
-                    counter = 0;
+                    currentLineCounter = 0;
                     headerHasBeenMade = false;
                 }
             }
@@ -148,7 +155,7 @@ function getMenuHelper(data) {
         }
     }
     // Create a new menuslide with the remaining items
-    if (counter !== 0) {
+    if (currentLineCounter !== 0) {
         newMenuSlide(container);
     }
 }
@@ -188,7 +195,7 @@ function tempClose(reason) {
     };
     reasoning.appendChild(reasoningText);
     openingHoursSlide.appendChild(reasoning);
-    isClosed == true;
+    isClosed = true;
     // Pauses the carousel
     $(".carousel").carousel('pause');
 

@@ -7,7 +7,7 @@ This project is based on a 1080 x 1920 resolution
 
 To view the website on this resolution use the inspect tool by pressing right click on website
 
-![Inspekt image](images/inspectImg.png)
+![Inspect image](images/inspectImg.png)
 
 Then click on this icon to change to your desired resolution
 
@@ -16,6 +16,13 @@ Then click on this icon to change to your desired resolution
 Then change to the right resolution
 
 ![Input image](images/resInput.png)
+
+## Developer controls
+Controls used to change between slides
+
+* To use the developer controls click the right or left side of the screen
+
+* When the developer controls have been activated by clicking, arrow keys can also be used.
 
 ## data-interval
 ```
