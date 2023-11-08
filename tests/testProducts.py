@@ -34,11 +34,11 @@ class TestProducts(unittest.TestCase):
             lines = csv.reader(products, delimiter=",", quotechar="|")
             for row in lines:
                 menuList.append(row)
-        for categoryIndex in range(round(len(menuList) / 4)):
-            categoryVisibilityList = menuList[2 + 4 * categoryIndex]
-            categoryItemList = menuList[0 + 4 * categoryIndex]
             for itemIndex in range(len(categoryVisibilityList)):
         # Loops through every category that starts at multiple of 4 (in list index)
+        for categoryIndex in range(0, round(len(menuList)), 4):
+            categoryVisibilityList = menuList[2 + categoryIndex]
+            categoryItemList = menuList[0 + categoryIndex]
             # Loops through the current category, starting at 1 to only include the relevant data
                 # Finds an element that contains the wanted text while not part of an image slide
                 xpath = f"//p[contains(text(), '{categoryItemList[itemIndex]}') and not(contains(@class,'itemText'))]"
