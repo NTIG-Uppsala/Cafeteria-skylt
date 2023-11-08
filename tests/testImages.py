@@ -1,3 +1,6 @@
+# !IMPORTANT!
+# Run startServer.py before running this test
+
 import csv
 import unittest
 
