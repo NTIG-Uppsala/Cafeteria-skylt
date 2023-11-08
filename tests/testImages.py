@@ -30,6 +30,7 @@ class TestImages(unittest.TestCase):
     def testImagesPresent(self):
         # Creates an array with data for the image slides from the csv file
         imageDataList = []
+
         with open(imageListPath, encoding="utf-8", newline="") as images:
             lines = csv.reader(images, delimiter=",", quotechar="|")
             for row in lines:
@@ -50,6 +51,7 @@ class TestImages(unittest.TestCase):
                     raise Exception(
                         f"An image with the source: {imagePathList[imageIndex]} was not found"
                     )
+
             elif imageVisibilityList[imageIndex] == "FALSE":
                 # If an element with the image source can be found when it should not the test fails
                 if not len(image) == 0:
