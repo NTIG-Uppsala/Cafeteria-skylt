@@ -46,6 +46,11 @@ class TestProducts(unittest.TestCase):
                     # If the element can not be found when it should the test fails
                     if len(item) == 0:
                         raise Exception(categoryItemList[itemIndex], "was not found")
+                elif categoryVisibilityList[itemIndex] == "FALSE":
+                    # If the element can be found when it should not the test fails
+                    if not len(item) == 0:
+                        raise Exception(categoryItemList[itemIndex], "was found")
+
 
     # Closes the window after all the tests are done
     @classmethod
