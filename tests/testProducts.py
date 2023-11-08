@@ -13,7 +13,7 @@ browser = webdriver.Chrome(options=optionsChrome)
 # Adress to website
 website = "http://127.0.0.1:8000"
 # Path to product list csv file
-productListPath = "public/productList.csv"
+productListPath = "public/csv/productList.csv"
 # Resolution on screen
 res = 1080, 1920
 
