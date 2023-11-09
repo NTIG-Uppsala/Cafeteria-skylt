@@ -8,7 +8,7 @@ function newMenuSlide(container) {
     // Creates a new div for the slide and adds classes and attributes
     const slide = document.createElement("div");
     slide.className = "carousel-item slide";
-    
+
     // Sets the duration of the slide to 10 seconds
     slide.setAttribute("data-interval", "10000");
     slide.setAttribute("style", "background-color: #190f27;");
@@ -117,10 +117,7 @@ function getMenuHelper(data) {
 
                 // This happens if no header has been made, it makes a new section
                 if (!headerHasBeenMade) {
-                    section = makeNewCategory(section, itemDiv, priceDiv, menuList, productCategory)[0];
-                    productDiv = makeNewCategory(section, itemDiv, priceDiv, menuList, productCategory)[1];
-                    itemDiv = makeNewCategory(section, itemDiv, priceDiv, menuList, productCategory)[2];
-                    priceDiv = makeNewCategory(section, itemDiv, priceDiv, menuList, productCategory)[3];
+                    [section, productDiv, itemDiv, priceDiv] = makeNewCategory(section, itemDiv, priceDiv, menuList, productCategory);
                     productDiv.appendChild(itemDiv);
                     section.appendChild(productDiv);
                     section.appendChild(priceDiv);
@@ -138,9 +135,9 @@ function getMenuHelper(data) {
                     // The current section/header is saved to continue on the new slide
                     container.appendChild(section);
                     newMenuSlide(container);
-                    container = createContainer();
                     currentLineCounter = 0;
                     headerHasBeenMade = false;
+                    container = createContainer();
                 }
             }
         }
