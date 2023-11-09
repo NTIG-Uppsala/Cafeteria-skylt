@@ -8,15 +8,18 @@ function newMenuSlide(container) {
     // Creates a new div for the slide and adds classes and attributes
     const slide = document.createElement("div");
     slide.className = "carousel-item slide";
+    
     // Sets the duration of the slide to 10 seconds
     slide.setAttribute("data-interval", "10000");
     slide.setAttribute("style", "background-color: #190f27;");
+
     // SlideCaption adds the div that the container is in
     const slideCaption = document.createElement("div");
     slideCaption.className = "carousel-caption d-none d-md-block priceList";
     slideCaption.setAttribute("style", "margin-top: 26vh;");
     slide.appendChild(slideCaption);
     slideCaption.appendChild(container);
+
     // Adds the slide to the carousel
     const carousel = document.getElementById("menu");
     carousel.appendChild(slide);
@@ -32,6 +35,7 @@ function resetContainer() {
 function getItemAndPrice(items, i, y) {
     // Creates a new p for the item and price 
     const itemP = document.createElement("p");
+
     // Takes the item and price of the current item
     const itemText = document.createTextNode(items[0 + i * 4][y]);
     itemP.appendChild(itemText);
@@ -46,16 +50,20 @@ function makeNewCategory(category, itemDiv, priceDiv, items, i) {
     // Creates a new div for the items and prices
     category = document.createElement("div");
     category.className = "row mb-5 mt-5";
+
     // PaddingDiv creates a div that is 2 columns wide
     let paddingDiv = document.createElement("div");
     paddingDiv.className = "col-2";
     let productDiv = document.createElement("div");
     productDiv.className = "col-7";
+
     // h2 is title for each category
     let header2 = document.createElement("h2");
+
     // Takes the category title of the current category
     let header2Text = document.createTextNode(items[0 + i * 4][0]);
     header2.appendChild(header2Text);
+
     // Creates a new div for the items and prices and add their classes
     itemDiv = document.createElement("div");
     priceDiv = document.createElement("div");
@@ -71,16 +79,21 @@ function getMenuHelper(data) {
     if (isClosed) {
         return;
     }
+
     // This splits data into lists
     const rows = data.split("\n");
     let rawMenuList = rows.map(row => row.split(','));
+
     // This removes empty items
     const menuList = rawMenuList.map(row => row.filter(value => value !== ""));
     let container = resetContainer();
+
     // This counts items on the slide to make sure it fits
     let currentLineCounter = 0;
+
     // Divides by four because each category takes up four lines
     let productCategoryCount = menuList.length / 4;
+
     // This loops through the categories
     for (let productCategory = 0; productCategory < productCategoryCount; productCategory++) {
         // List of booleans for each category
@@ -89,6 +102,7 @@ function getMenuHelper(data) {
         const maxLinesAllowedForNewItem = 23 * itemHeightInLines;
         const maxLinesAllowedForNewHeader = maxLinesAllowedForNewItem - headerHeightInLines;
         let section, itemDiv, priceDiv;
+
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
             if (productVisibilityList[itemIndex] === "FALSE") {
                 continue;
@@ -100,6 +114,7 @@ function getMenuHelper(data) {
                     headerHasBeenMade = false;
                     container = resetContainer();
                 }
+
                 // This happens if no header has been made, it makes a new section
                 if (!headerHasBeenMade) {
                     section = makeNewCategory(section, itemDiv, priceDiv, menuList, productCategory)[0];
@@ -112,10 +127,12 @@ function getMenuHelper(data) {
                     headerHasBeenMade = true;
                     currentLineCounter += headerHeightInLines;
                 }
+
                 // This gets the item and price and adds it to the item/price div
                 itemDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[0]);
                 priceDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[1]);
                 currentLineCounter += itemHeightInLines;
+
                 if (currentLineCounter > maxLinesAllowedForNewItem) {
                     // This makes a new slide
                     // The current section/header is saved to continue on the new slide
@@ -127,11 +144,13 @@ function getMenuHelper(data) {
                 }
             }
         }
+
         // Adds category to the container
         if (headerHasBeenMade) {
             container.appendChild(section);
         }
     }
+    
     // Create a new menuslide with the remaining items
     if (currentLineCounter !== 0) {
         newMenuSlide(container);
