@@ -10,21 +10,21 @@ let productListPath = urlParams.has('products') ? urlParams.get('products') : pr
 let imageListPath = urlParams.has('images') ? urlParams.get('images') : imageListPathDefault;
 let openHoursListPath = urlParams.has('openHours') ? urlParams.get('openHours') : openHoursListPathDefault;
 
-// Runs getImageSlide() with data from imageList.csv
-function getImageSlide(){
-    $.ajax({
-        type: 'GET',
-        url: "http://127.0.0.1:8000/csv/" + imageListPath,
-        success: function (data) { helperGetImageSlide(data) }
-    });
-}
-
 // Runs getOpeningHours() with data from openHoursList.csv
 function getOpeningHours() {
     $.ajax({
         type: 'GET',
         url: "http://127.0.0.1:8000/csv/" + openHoursListPath,
         success: function (data) { getOpeningHoursHelper(data) }
+    });
+}
+
+// Runs getImageSlide() with data from imageList.csv
+function getImageSlide(){
+    $.ajax({
+        type: 'GET',
+        url: "http://127.0.0.1:8000/csv/" + imageListPath,
+        success: function (data) { helperGetImageSlide(data) }
     });
 }
 
