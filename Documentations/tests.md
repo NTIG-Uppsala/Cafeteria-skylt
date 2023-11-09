@@ -1,4 +1,10 @@
-# Selenium
+# Tests
+
+## Before running tests
+* Make sure that the [local setup](localSetup.md) has been followed
+* Run [startServer.py](../RaspberryPi/configuration/startServer.py) and keep it running during testing
+
+## How to run tests using Selenium
 * In VS Code open the terminal
 * Input "py -m pip install selenium"
 * Input "py -m pip install requests"
@@ -13,6 +19,3 @@
 ![Unittest](../Documentations/images/chooseDirectory.jpg)
 * Lastly choose "test*.py" so that all files beginning their name with test will be run as demonstrated below:<br> <br>
 ![Test naming](../Documentations/images/testNaming.jpg)
-# Before running tests
-* Make sure that the [local setup](localSetup.md) has been followed
-* Run [startServer.py](../RaspberryPi/configuration/startServer.py) and keep it running during testing
