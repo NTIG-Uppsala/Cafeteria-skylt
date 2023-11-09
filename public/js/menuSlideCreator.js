@@ -3,15 +3,6 @@ const itemHeightInLines = 1;
 // A value that should roughly reflect how many times greater the height of a header is compared to an item's height
 const headerHeightInLines = 2 * itemHeightInLines;
 
-// Runs get menu with data from productList.csv
-function getMenu() {
-    $.ajax({
-        type: 'GET',
-        url: "http://127.0.0.1:8000/productList.csv",
-        success: function (data) { getMenuHelper(data) }
-    });
-}
-
 // Adds a new slide to the carousel
 function newMenuSlide(container) {
     // Creates a new div for the slide and adds classes and attributes

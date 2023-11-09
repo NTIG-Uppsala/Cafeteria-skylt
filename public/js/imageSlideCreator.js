@@ -1,12 +1,3 @@
-// Runs getImageSlide() with data from imageList.csv
-function getImageSlide(){
-    $.ajax({
-        type: 'GET',
-        url: "http://127.0.0.1:8000/imageList.csv",
-        success: function (data) { helperGetImageSlide(data) }
-    });
-}
-
 function helperGetImageSlide(data){
     // Hinders the creation of image slides if closed
     if (isClosed) {

@@ -21,14 +21,14 @@ csvImageSlide = sh.get_worksheet(1).get_all_values()
 csvOpenHours = sh.get_worksheet(2).get_all_values()
 
 # Writes the values into a csv file with the correct encoding
-with open("public/productList.csv", "w", encoding="utf8") as file:
+with open("public/csv/productList.csv", "w", encoding="utf8") as file:
     for row in csvProduct:
         file.write(",".join(row) + "\n")
 
-with open("public/imageList.csv", "w", encoding="utf8") as file:
+with open("public/csv/imageList.csv", "w", encoding="utf8") as file:
     for row in csvImageSlide:
         file.write(",".join(row) + "\n")
 
-with open("public/openHoursList.csv", "w", encoding="utf8") as file:
+with open("public/csv/openHoursList.csv", "w", encoding="utf8") as file:
     for row in csvOpenHours:
         file.write(",".join(row) + "\n")
