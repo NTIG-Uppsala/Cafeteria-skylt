@@ -25,8 +25,8 @@ function newMenuSlide(container) {
     carousel.appendChild(slide);
 }
 
-function resetContainer() {
-    // Makes container empty
+function createContainer() {
+    // Creates a new empty container
     container = document.createElement("div");
     container.className = "container";
     return container;
@@ -86,7 +86,7 @@ function getMenuHelper(data) {
 
     // This removes empty items
     const menuList = rawMenuList.map(row => row.filter(value => value !== ""));
-    let container = resetContainer();
+    let container = createContainer();
 
     // This counts items on the slide to make sure it fits
     let currentLineCounter = 0;
@@ -112,7 +112,7 @@ function getMenuHelper(data) {
                     newMenuSlide(container);
                     currentLineCounter = 0;
                     headerHasBeenMade = false;
-                    container = resetContainer();
+                    container = createContainer();
                 }
 
                 // This happens if no header has been made, it makes a new section
@@ -138,7 +138,7 @@ function getMenuHelper(data) {
                     // The current section/header is saved to continue on the new slide
                     container.appendChild(section);
                     newMenuSlide(container);
-                    container = resetContainer();
+                    container = createContainer();
                     currentLineCounter = 0;
                     headerHasBeenMade = false;
                 }
