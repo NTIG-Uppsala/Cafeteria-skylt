@@ -1,5 +1,30 @@
 # Tests
 
+## Using test data
+
+* Some tests are run using test data
+    * These tests include `testTemporaryClosed.py`, `testImages.py`, `testProducts.py`
+
+* To change what data a test uses change the test file as in the example below:
+
+Example uses code from testOpenHours.py starting at line 14
+
+```Python
+# Adress to website
+website = "http://127.0.0.1:8000/?openHours=openHoursList.csv"
+# Path to product list csv file
+productListPath = "public/csv/openHoursList.csv"
+```
+
+Change the strings as shown below
+
+```Python
+# Adress to website
+website = "http://127.0.0.1:8000/?openHours=testOpenHoursList.csv"
+# Path to product list csv file
+productListPath = "public/csv/testOpenHoursList.csv"
+```
+
 ## Before running tests
 * Make sure that the [local setup](localSetup.md) has been followed
 * Run [startServer.py](../RaspberryPi/configuration/startServer.py) and keep it running during testing
