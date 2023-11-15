@@ -14,8 +14,8 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(
 # Authorize the client sheet and gets get the relevant spreadsheet by key
 client = gspread.authorize(credentials)
 sh = client.open_by_key("1wN90DoWtkIRofBl3Jm_UkQMeDUDMMIszM-5tlwlPICA")
-# Gets all values from the spreadsheet
 
+# Gets all values from the spreadsheet
 csvProduct = sh.get_worksheet(0).get_all_values()
 csvImageSlide = sh.get_worksheet(1).get_all_values()
 csvOpenHours = sh.get_worksheet(2).get_all_values()
@@ -32,3 +32,5 @@ with open("public/csv/imageList.csv", "w", encoding="utf8") as file:
 with open("public/csv/openHoursList.csv", "w", encoding="utf8") as file:
     for row in csvOpenHours:
         file.write(",".join(row) + "\n")
+
+print("\nSheet data has been downloaded\n")
