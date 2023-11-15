@@ -34,15 +34,15 @@ function createContainer() {
 
 function getItemAndPrice(items, i, y) {
     // Creates a new p for the item and price 
-    const itemP = document.createElement("p");
+    const itemNameElement = document.createElement("p");
 
     // Takes the item and price of the current item
     const itemText = document.createTextNode(items[0 + i * 4][y]);
-    itemP.appendChild(itemText);
-    const priceP = document.createElement("p");
+    itemNameElement.appendChild(itemText);
+    const itemPriceElement = document.createElement("p");
     const priceText = document.createTextNode(items[1 + i * 4][y]);
-    priceP.appendChild(priceText);
-    return [itemP, priceP];
+    itemPriceElement.appendChild(priceText);
+    return [itemNameElement, itemPriceElement];
 }
 
 // This makes a new category and puts it in the container
