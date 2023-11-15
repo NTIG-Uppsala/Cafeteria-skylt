@@ -4,16 +4,10 @@
 
 ### Installs
 
-* Install gspread 
+* Install requirements
 
     ``` 
-    python -m pip install gspread 
-    ```
-
-* Install oauth2client
-
-    ```
-    python -m pip install oauth2client
+    python -m pip install -r requirements.txt
     ```
 
 ### Get data from google sheet
