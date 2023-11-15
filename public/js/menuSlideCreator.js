@@ -163,5 +163,3 @@ $('#carousel').on('slide.bs.carousel', function (event) {
         }
     }
 });
-
-getMenu();
