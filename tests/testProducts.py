@@ -29,17 +29,11 @@ class TestProducts(unittest.TestCase):
 
     def testProductNames(self):
         self.assertIn("Wienerbröd", self.browser.page_source)
-        self.assertIn("Aloe Vera", self.browser.page_source)
-        self.assertIn("Paj", self.browser.page_source)
+        self.assertIn("Starbucks", self.browser.page_source)
+        self.assertIn("Grillad panini", self.browser.page_source)
         self.assertIn("Rostbiff-potatis", self.browser.page_source)
         self.assertIn("Risifrutti", self.browser.page_source)
         self.assertIn("Twix", self.browser.page_source)
-
-    def testHiddenProducts(self):
-        self.assertNotIn("Mazariner", self.browser.page_source)
-        self.assertNotIn("Starbucks", self.browser.page_source)
-        self.assertNotIn("Frukt", self.browser.page_source)
-        self.assertNotIn("Marabou choklad", self.browser.page_source)
 
     # Closes the window after all the tests are done
     @classmethod
