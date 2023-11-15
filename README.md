@@ -10,36 +10,36 @@ The Raspberry Pi gets the menu and items from a Google Spreadsheets sheet where 
 
 [Link to spreadsheet](https://docs.google.com/spreadsheets/d/1wN90DoWtkIRofBl3Jm_UkQMeDUDMMIszM-5tlwlPICA/)
 
-![Cafeteria-skylten](Documentations/images/cafeteriaDisplay.png)
+![Cafeteria-skylten](documentation/images/cafeteriaDisplay.png)
 
 ## Environments and Languages 
-[Documentation](Documentations/enviromentsLanguages.md)
+[Documentation](documentation/enviromentsLanguages.md)
 
 ## Local development environment
 
-[Instructions](Documentations/localSetup.md)
+[Instructions](documentation/localSetup.md)
 
 ## Tests
 
 There are automated tests made with selenium. 
 
-[To run tests](Documentations/tests.md)
+[To run tests](documentation/tests.md)
 
 ## Getting started with the Raspberry Pi
-[Instructions](Documentations/raspberrySetup.md)
+[Instructions](documentation/raspberrySetup.md)
 
-[Using Raspberry pi](Documentations/usingRaspberryPi.md)
+[Using Raspberry pi](documentation/usingRaspberryPi.md)
 
-[Configure autostart](Documentations/autostart.md)
+[Configure autostart](documentation/autostart.md)
 
 ## Useful configuration tips
 
-[Tips](Documentations/configuration.md)
+[Tips](documentation/configuration.md)
 
 ## Service acount
 
-[Create service account](Documentations/serviceAccount.md)
+[Create service account](documentation/serviceAccount.md)
 
 ## Licence
 
-[Licences](Documentations/licence.md)
+[Licences](documentation/licence.md)
