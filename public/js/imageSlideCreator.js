@@ -25,10 +25,10 @@ function helperGetImageSlide(data){
             productImage.setAttribute("height", "700");
             const dotImage = document.createElement("img")
             dotImage.className = "productSlide dot";
-            dotImage.setAttribute("src", "images/dot.png")
+            dotImage.setAttribute("src", "images/blurredDot.png")
             const moneyDot = document.createElement("img")
             moneyDot.className = "productSlide moneyDot"; 
-            moneyDot.setAttribute("src", "images/moneyDot.png")
+            moneyDot.setAttribute("src", "images/vibrantDot.png")
             const imageText = document.createElement("div");
             imageText.className =  "carousel-caption d-none d-md-block productPrice";
             const product = document.createElement("p");
