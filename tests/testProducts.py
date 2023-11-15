@@ -7,6 +7,9 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+optionsChrome = webdriver.ChromeOptions()  # Define options for chrome
+optionsChrome.add_argument("headless")  # Pass headless argument to the options (no ui)
+browser = webdriver.Chrome(options=optionsChrome)
 
 # Adress to website
 website = "http://127.0.0.1:8000/?products=testProductList.csv"
@@ -20,9 +23,6 @@ res = 1080, 1920
 class TestProducts(unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        optionsChrome = webdriver.ChromeOptions()  # Define options for chrome
-        optionsChrome.add_argument("headless")  # Pass headless argument to the options (no ui)
-        browser = webdriver.Chrome(options=optionsChrome)
         self.browser = browser
         browser.get(website)
         browser.set_window_size(*res)
