@@ -7,6 +7,6 @@ however this project uses a pointer or a symbolic link. So the first step is to 
 >
 in the terminal.  
 The second step is to link the new autostart file, you do this by typing
->sudo ln -s /home/Git/*name of github repo here*/RaspberryPi/configuration/autostart autostart
+>sudo ln -s /home/Git/*name of github repo here*/raspberryPi/configuration/autostart autostart
 >
 It is important to note that the second autostart is the name of the symbolic link.
