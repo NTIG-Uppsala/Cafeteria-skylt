@@ -21,7 +21,7 @@ The Raspberry Pi gets the menu and items from a Google Spreadsheets sheet where 
 
 ## Tests
 
-There are automated tests made with selenium. 
+There are automated tests made with Selenium that use test data. 
 
 [To run tests](documentation/tests.md)
 
