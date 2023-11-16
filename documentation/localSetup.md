@@ -10,6 +10,9 @@
 
 ## Google sheet download
 
+### Set up Google service account:
+Follow [these](serviceAccount.md) instructions.
+
 ### Get data from google sheet
 
 * In the terminal from the projects root folder input the following: 
