@@ -18,9 +18,9 @@
     python googleSheetDownloader.py
     ```
 
-* Check public folder for csv-files (see the image below)
+* Check the csv folder inside the public folder for these csv-files (see the image below)
 
-![Image of public folder including csv-files](images/publicFolder.png)
+![Image of public folder including csv-files](images/CsvFileLocation.png)
 
 ## Finalise local setup
 
