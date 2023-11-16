@@ -121,7 +121,7 @@ This has to be done every 365 days to prevent an update prompt
 Already done if you followed the configuration step
  
 		1. Open Command Line Interface and type in the following command:
-                sudo cp /home/pi/Git/cafeteria-display/RaspberryPi/configuration/pix/splash.png /usr/share/plymouth/themes/pix/splash.png
+                sudo cp /home/pi/Git/cafeteria-display/raspberryPi/configuration/pix/splash.png /usr/share/plymouth/themes/pix/splash.png
 ```
 #### Change Background Image:
 ```
@@ -129,7 +129,7 @@ Already done if you followed the configuration step
  
 		1. Right-click on desktop and select desktop preferences.
 		2. Under the desktop tab, in the Picture setting, select the picture named purple-logo.png
-                /home/pi/Git/cafeteria-display/RaspberryPi/configuration/wallpaper.png
+                /home/pi/Git/cafeteria-display/raspberryPi/configuration/wallpaper.png
 ```
  
 ### Remote Update Script:
@@ -141,7 +141,7 @@ Already done if you followed the configuration step
 		2. Open the Command Line Interface and write the following command:
                 sudo nano /etc/profile
 		3. Add the following line at the bottom:
-             python3 /home/pi/Git/cafeteria-display/RaspberryPi/python/loop.py &
+             python3 /home/pi/Git/cafeteria-display/raspberryPi/python/loop.py &
     
 Notice: You will get an error each time the autopull script runs that is as follows (Fatal: unable to get credential storage lock: File exists)
  
@@ -183,7 +183,7 @@ The autopull script will still run as intended.
     4. Type 1 to chose nano as your editor
 
     5. Go to the bottom of the opened document and type in the following command:
-        * * * * * cd ~/Git/cafeteria-display/RaspberryPi && python3 temperatureLogger.py
+        * * * * * cd ~/Git/cafeteria-display/raspberryPi && python3 temperatureLogger.py
 
     * Temperature logger will restart the raspberry pi if temperature rises over 80°C
 ```   

@@ -4,16 +4,10 @@
 
 ### Installs
 
-* Install gspread 
+* Install requirements
 
     ``` 
-    python -m pip install gspread 
-    ```
-
-* Install oauth2client
-
-    ```
-    python -m pip install oauth2client
+    python -m pip install -r requirements.txt
     ```
 
 ### Get data from google sheet
@@ -33,7 +27,7 @@
 * In the terminal from the projects root folder input the following: 
 
     ```
-    python .\RaspberryPi\configuration\startServer.py
+    python .\startServer.py
     ```
 
 * To view the project go to the local host at [127.0.0.1:8000](http://127.0.0.1:8000/)

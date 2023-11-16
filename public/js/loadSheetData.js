@@ -15,7 +15,10 @@ function getOpeningHours() {
     $.ajax({
         type: 'GET',
         url: "http://127.0.0.1:8000/csv/" + openHoursListPath,
-        success: function (data) { getOpeningHoursHelper(data) }
+        success: function (data) { 
+            getOpeningHoursHelper(data);
+            getImageSlide();
+        }
     });
 }
 
@@ -24,7 +27,10 @@ function getImageSlide(){
     $.ajax({
         type: 'GET',
         url: "http://127.0.0.1:8000/csv/" + imageListPath,
-        success: function (data) { helperGetImageSlide(data) }
+        success: function (data) {
+            helperGetImageSlide(data);
+            getMenu();
+        }
     });
 }
 
@@ -36,3 +42,5 @@ function getMenu() {
         success: function (data) { getMenuHelper(data) }
     });
 }
+
+getOpeningHours();

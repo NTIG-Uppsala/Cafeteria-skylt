@@ -27,7 +27,7 @@ productListPath = "public/csv/testOpenHoursList.csv"
 
 ## Before running tests
 * Make sure that the [local setup](localSetup.md) has been followed
-* Run [startServer.py](../RaspberryPi/configuration/startServer.py) and keep it running during testing
+* Run [startServer.py](../startServer.py) and keep it running during testing
 
 ## How to run tests using Selenium
 * In VS Code open the terminal

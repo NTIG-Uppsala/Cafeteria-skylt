@@ -11,13 +11,13 @@
 	<meta http-equiv="refresh" content="3600">
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/pricelist.css">
+	<link rel="stylesheet" href="libraries/bootstrap.min.css">
+	<link rel="stylesheet" href="css/priceList.css">
 	<link rel="stylesheet" href="css/animation.css">
 
 	<!-- JavaScript -->
-	<script src="js/jquery-3.3.1.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="libraries/jquery-3.3.1.js"></script>
+	<script src="libraries/bootstrap.bundle.min.js"></script>
 
 	<!-- Preload JavaScript -->
 	<link rel="preload" href="js/loadSheetData.js" as="script">
@@ -43,7 +43,7 @@
 	<div class="container layer3"></div>
 
 	<!-- Carousel -->
-	<div class="carousel slide" data-ride="carousel" id="open">
+	<div class="carousel slide" data-ride="carousel" id="carousel">
 		<div class="carousel-inner" id="menu">
 			<div class="carousel-item slide active refreshSlide" data-interval="10000"
 				style="background-color: #190f27;">
@@ -58,10 +58,10 @@
 			</div>
 
 			<!-- Dev controls -->
-			<button class="carousel-control-prev" type="button" data-target="#open" data-slide="prev"
+			<button class="carousel-control-prev" type="button" data-target="#carousel" data-slide="prev"
 				style="opacity: 0%; z-index: 100;">
 			</button>
-			<button class="carousel-control-next" type="button" data-target="#open" data-slide="next"
+			<button class="carousel-control-next" type="button" data-target="#carousel" data-slide="next"
 				style="opacity: 0%; z-index: 100;">
 			</button>
 		</div>
@@ -72,11 +72,11 @@
 	<p id="day"></p>
 	<p id="date"></p>
 
-	<script src="js/loadSheetData.js"></script>
 	<script src="js/dateAndTime.js"></script>
 	<script src="js/openingHours.js"></script>
 	<script src="js/imageSlideCreator.js"></script>
 	<script src="js/menuSlideCreator.js"></script>
+	<script src="js/loadSheetData.js"></script>
 
 </body>
 

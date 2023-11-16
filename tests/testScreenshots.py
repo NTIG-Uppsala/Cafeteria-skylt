@@ -41,7 +41,7 @@ class TestScreenshots(unittest.TestCase):
         if not path.exists("screenshots/"):
             mkdir("screenshots/")
         for i in range(nr_of_slides):
-            self.browser.save_screenshot(f"screenshots/Slide{str(screenshot_nr)}.png")
+            self.browser.save_screenshot(f"screenshots/slide{str(screenshot_nr)}.png")
             time.sleep(1)
             self.browser.execute_script("$('.carousel').carousel('next')")
             time.sleep(1)
