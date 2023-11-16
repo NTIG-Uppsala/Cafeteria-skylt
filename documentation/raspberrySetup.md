@@ -63,6 +63,40 @@ and then clone the git repository with the command
     ```
     git clone https://github.com/NTIG-Uppsala/cafeteria-display.git
     ```
+
+#### Install Python Requirements
+
+If you have a new RaspberryPi os you may have to remove the externally-managed file using this command:
+``` 
+sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+``` 
+Then install the requirements with the following command:
+``` 
+python -m pip install -r requirements.txt
+```
+
+#### Set up Google service account:
+##### If there exists an active service account:
+1. Download the serviceAccount.json from the [Google Drive](https://drive.google.com/drive/folders/1Yf2ABcoPqGIK5E88mXdyQchkGVjTMYVt)
+2.  Add the serviceAccount.json to the root folder of the project
+##### If there is no active service account:
+Follow the guide to [create a service account](serviceAccount.md)
+
+
+#### Set up Google Sheets sheet downloader:
+```   
+    1. SSH into the Raspberry pi
+
+    2. Change directory to home/pi
+
+    3. Open the Command Line Interface and enter the following command:
+        crontab -e
+
+    4. Type 1 to chose nano as your editor
+
+    5. Go to the bottom of the opened document and type in the following command:
+        * * * * * cd ~/Git/cafeteria-display && python3 googleSheetDownloader.py
+```
  
 However, these steps above are already done if you are working with this repository and the same old Raspberry Pi. 
 So to say you don't need to follow them.
@@ -186,42 +220,4 @@ The autopull script will still run as intended.
         * * * * * cd ~/Git/cafeteria-display/raspberryPi && python3 temperatureLogger.py
 
     * Temperature logger will restart the raspberry pi if temperature rises over 80°C
-```   
-
-### Set up Google service account:
-
-#### If there exists an active service account:
-
-1. Download the serviceAccount.json from the [Google Drive](https://drive.google.com/drive/folders/1Yf2ABcoPqGIK5E88mXdyQchkGVjTMYVt)
-
-2.  Add the serviceAccount.json to the root folder of the project
-
-#### If there is no active service account:
-
-Follow the guide to [create a service account](serviceAccount.md)
-
-### Install Python Requirements
-
-If you have a new RaspberryPi os you may have to remove the externally-managed file using this command:
-``` 
-sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
-``` 
-Then install the requirements with the following command:
-``` 
-python -m pip install -r requirements.txt
-```
-
-### Set up Google Sheets sheet downloader:
-```   
-    1. SSH into the Raspberry pi
-
-    2. Change directory to home/pi
-
-    3. Open the Command Line Interface and enter the following command:
-        crontab -e
-
-    4. Type 1 to chose nano as your editor
-
-    5. Go to the bottom of the opened document and type in the following command:
-        * * * * * cd ~/Git/cafeteria-display && python3 googleSheetDownloader.py
 ```
