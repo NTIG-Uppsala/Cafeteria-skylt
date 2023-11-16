@@ -1,6 +1,6 @@
 # Environments and Languages 
 
-## Development Environments
+## Standardized Development Environment
 
 - Windows 10 Education
 - GitHub Desktop
