@@ -48,5 +48,3 @@ function helperGetImageSlide(data){
             carousel.append(imageSlide)    
         }
 }};
-
-getImageSlide();

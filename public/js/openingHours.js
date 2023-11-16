@@ -45,5 +45,3 @@ window.setInterval(function () {
     }
     willRefresh = true
 }, 1000 * 60 * 10)
-
-getOpeningHours();
