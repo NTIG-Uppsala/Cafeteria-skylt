@@ -13,7 +13,7 @@ The Raspberry Pi gets the menu and items from a Google Spreadsheets sheet where 
 ![Cafeteria-skylten](documentation/images/cafeteriaDisplay.png)
 
 ## Environments and Languages 
-[Documentation](documentation/enviromentsLanguages.md)
+[Documentation](documentation/environmentsLanguages.md)
 
 ## Local development environment
 
