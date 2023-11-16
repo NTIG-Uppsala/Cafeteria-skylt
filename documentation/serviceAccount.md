@@ -1,5 +1,13 @@
 
-# Google service account setup
+# Set up Google service account:
+
+## If there exists an active service account:
+
+1. Download the serviceAccount.json from the [Google Drive](https://drive.google.com/drive/folders/1Yf2ABcoPqGIK5E88mXdyQchkGVjTMYVt)
+
+2.  Add the serviceAccount.json to the root folder of the project
+
+## If there is no active service account:
 
 1. Go to [Google Cloud IAM](https://console.cloud.google.com/iam-admin) and create a project. 
 
