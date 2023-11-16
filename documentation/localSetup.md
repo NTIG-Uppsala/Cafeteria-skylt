@@ -11,7 +11,7 @@
 ## Google sheet download
 
 ### Set up Google service account:
-Follow [these](serviceAccount.md) instructions.
+[Follow these instructions](serviceAccount.md)
 
 ### Get data from google sheet
 
