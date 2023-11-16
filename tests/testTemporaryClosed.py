@@ -10,7 +10,7 @@ from selenium.webdriver.common.by import By
 import time
 
 optionsChrome = webdriver.ChromeOptions()  # Define options for chrome
-#optionsChrome.add_argument("headless")  # Pass headless argument to the options (no ui)
+optionsChrome.add_argument("headless")  # Pass headless argument to the options (no ui)
 browser = webdriver.Chrome(options=optionsChrome)
 
 # Adress to website
