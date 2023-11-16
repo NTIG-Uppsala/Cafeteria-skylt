@@ -36,10 +36,6 @@ There are automated tests made with Selenium that use test data.
 
 [Tips](documentation/configuration.md)
 
-## Service acount
-
-[Create service account](documentation/serviceAccount.md)
-
 ## Licence
 
 [Licences](documentation/licence.md)
