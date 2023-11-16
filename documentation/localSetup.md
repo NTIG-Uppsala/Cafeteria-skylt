@@ -1,14 +1,14 @@
 # Local setup
 
-## Google sheet download
-
-### Installs
+## Installs
 
 * Install requirements
 
     ``` 
     python -m pip install -r requirements.txt
     ```
+
+## Google sheet download
 
 ### Get data from google sheet
 
