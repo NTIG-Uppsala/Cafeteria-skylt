@@ -30,6 +30,9 @@ class TestTemporaryClosed(unittest.TestCase):
         # Only one slide should exist when temporary closed
         self.assertEqual(len(slides), 1)
 
+    def testTemporaryClosedText(self):
+        self.assertIn("Cafeterian har tillfälligt stängt", self.browser.page_source)
+
     # Closes the window after all the tests are done
     @classmethod
     def tearDownClass(self):
