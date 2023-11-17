@@ -33,6 +33,11 @@ class TestProducts(unittest.TestCase):
         self.assertNotIn("Kalkon-Ost", self.browser.page_source)
         self.assertNotIn("Marabou choklad", self.browser.page_source)
 
+    def testVisibleCategories(self):
+        self.assertIn("Fika", self.browser.page_source)
+        self.assertIn("Baguette", self.browser.page_source)
+        self.assertIn("Godis", self.browser.page_source)
+
     # Closes the window after all the tests are done
     @classmethod
     def tearDownClass(self):
