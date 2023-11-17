@@ -1,39 +1,11 @@
-from os import getcwd, path
-from unittest import TestCase, main
+from unittest import main
 
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
+from baseTestClass import BaseTestClass
 
-class TestTime(TestCase):
-    doNotCloseBrowser = False
-    hideWindow = True
 
-    @classmethod
-    def setUpClass(cls):
-        chr_options = Options()
-
-        chr_options.add_experimental_option("excludeSwitches", ["enable-logging"])
-
-        if cls.doNotCloseBrowser:
-            chr_options.add_experimental_option("detach", True)
-
-        if cls.hideWindow:
-            chr_options.add_argument("--headless")
-
-        cls.browser = webdriver.Chrome(options=chr_options)
-
-    @classmethod
-    def tearDownClass(cls):
-        pass
-
-    def setUp(self):
-        self.browser.get(path.join(getcwd(), "./public/index.html"))
-
-    def tearDown(self):
-        self.browser.get("about:blank")
-
+class TestTime(BaseTestClass):
     # A helper function for testClock
     def helperTestClock(self, date, result):
         # Runs getTime from main.js to change time
