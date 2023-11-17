@@ -14,7 +14,7 @@ optionsChrome.add_argument("headless")  # Pass headless argument to the options 
 browser = webdriver.Chrome(options=optionsChrome)
 
 # Adress to website
-website = "http://127.0.0.1:8000/?openHours=testOpenHoursList.csv"
+website = "http://127.0.0.1:8000/?products=testProductList.csv&images=testImageList.csv&openHours=testOpenHoursListClosed.csv"
 # Resolution on screen
 res = 1080, 1920
 
