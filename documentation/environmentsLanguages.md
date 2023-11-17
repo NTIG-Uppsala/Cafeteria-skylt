@@ -1,13 +1,11 @@
 # Environments and Languages 
 
-## Development Environments
+## Standardized Development Environment
 
 - Windows 10 Education
 - GitHub Desktop
 - Visual Studio Code - (Version 1.83.0)
 - Google Chrome - (Version 117.0.5938.134)
-
-***
 
 ## Programming Languages & Frameworks
 
@@ -29,8 +27,6 @@
 - Unittest
 - Selenium 4.13.0
 - Requests 2.31.0
-
-***
 
 ## Coding Standard 
 - camelCase

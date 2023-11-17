@@ -10,10 +10,15 @@ The Raspberry Pi gets the menu and items from a Google Spreadsheets sheet where 
 
 [Link to spreadsheet](https://docs.google.com/spreadsheets/d/1wN90DoWtkIRofBl3Jm_UkQMeDUDMMIszM-5tlwlPICA/)
 
+The Spreadsheet uses an Apps Script. 
+
+[Info about Apps Script](documentation/appsScript.md)
+
+### Image of the cafeteria display
 ![Cafeteria-skylten](documentation/images/cafeteriaDisplay.png)
 
 ## Environments and Languages 
-[Documentation](documentation/enviromentsLanguages.md)
+[Documentation](documentation/environmentsLanguages.md)
 
 ## Local development environment
 
@@ -21,7 +26,7 @@ The Raspberry Pi gets the menu and items from a Google Spreadsheets sheet where 
 
 ## Tests
 
-There are automated tests made with selenium. 
+There are automated tests made with Selenium that use test data. 
 
 [To run tests](documentation/tests.md)
 
@@ -30,15 +35,9 @@ There are automated tests made with selenium.
 
 [Using Raspberry pi](documentation/usingRaspberryPi.md)
 
-[Configure autostart](documentation/autostart.md)
-
 ## Useful configuration tips
 
 [Tips](documentation/configuration.md)
-
-## Service acount
-
-[Create service account](documentation/serviceAccount.md)
 
 ## Licence
 
