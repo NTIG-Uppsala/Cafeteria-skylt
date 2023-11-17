@@ -25,7 +25,7 @@ class TestTemporaryClosed(unittest.TestCase):
         browser.get(website)
         browser.set_window_size(*res)
 
-    def testTemporaryClosed(self):
+    def testTemporaryClosedSlidesCount(self):
         slides = self.browser.find_elements(By.CLASS_NAME, "carousel-item")
         # Only one slide should exist when temporary closed
         self.assertEqual(len(slides), 1)
