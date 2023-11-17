@@ -92,7 +92,19 @@ python -m pip install -r requirements.txt
     5. Go to the bottom of the opened document and type in the following command:
         * * * * * cd ~/Git/cafeteria-display && python3 googleSheetDownloader.py
 ```
- 
+
+#### Configure autostart
+This project uses a pointer or a symbolic link. So the first step is to unlink the old link. You can do this by typing the following in the terminal:
+```
+sudo unlink /etc/xdg/lxsession/LXDE-pi/autostart
+```
+
+The second step is to link the new autostart file, you do this by typing the following in the terminal:
+```
+sudo ln -s /home/pi/Git/*name of github repo here*/raspberryPi/configuration/autostart /etc/xdg/lxsession/LXDE-pi/autostart
+```
+
+
 However, these steps above are already done if you are working with this repository and the same old Raspberry Pi. 
 So to say you don't need to follow them.
  
