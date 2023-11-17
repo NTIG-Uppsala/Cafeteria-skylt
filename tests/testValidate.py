@@ -11,8 +11,8 @@ URL = "https://validator.w3.org/nu/"
 
 
 class TestValidate(TestCase):
-    doNotCloseBrowser = True
-    hideWindow = False
+    doNotCloseBrowser = False
+    hideWindow = True
 
     @classmethod
     def setUpClass(cls):
