@@ -14,6 +14,7 @@ The Spreadsheet uses an Apps Script.
 
 [Info about Apps Script](documentation/appsScript.md)
 
+### Image of the cafeteria display
 ![Cafeteria-skylten](documentation/images/cafeteriaDisplay.png)
 
 ## Environments and Languages 
