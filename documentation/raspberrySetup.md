@@ -50,7 +50,7 @@
     Follow this link to get the user credentials(you may need permission): 
     https://docs.google.com/document/d/1YBDG4wcsMQ5bQ_GXvfvEGvHv2n3K4r0YC5Mz17dX0Qk/edit
     ```
-### Configuration
+## Configuration
  
 To start configuring your Raspberry Pi 3B+, Create a directory named "Git" in /home/pi/. 
  
@@ -64,7 +64,7 @@ and then clone the git repository with the command
     git clone https://github.com/NTIG-Uppsala/cafeteria-display.git
     ```
 
-#### Install Python Requirements
+### Install Python Requirements
 
 If you have a new RaspberryPi os you may have to remove the externally-managed file using this command:
 ``` 
@@ -75,10 +75,10 @@ Then install the requirements with the following command:
 python -m pip install -r requirements.txt
 ```
 
-#### Set up Google service account:
+### Set up Google service account:
 [Follow these instructions](serviceAccount.md)
 
-#### Set up Google Sheets sheet downloader:
+### Set up Google Sheets sheet downloader:
 ```   
     1. SSH into the Raspberry pi
 
@@ -93,7 +93,7 @@ python -m pip install -r requirements.txt
         * * * * * cd ~/Git/cafeteria-display && python3 googleSheetDownloader.py
 ```
 
-#### Configure autostart
+### Configure autostart
 This project uses a pointer or a symbolic link. So the first step is to unlink the old link. You can do this by typing the following in the terminal:
 ```
 sudo unlink /etc/xdg/lxsession/LXDE-pi/autostart
@@ -164,7 +164,7 @@ Already done if you followed the configuration step
 		1. Open Command Line Interface and type in the following command:
                 sudo cp /home/pi/Git/cafeteria-display/raspberryPi/configuration/pix/splash.png /usr/share/plymouth/themes/pix/splash.png
 ```
-#### Change Background Image:
+### Change Background Image:
 ```
 Already done if you followed the configuration step
  
