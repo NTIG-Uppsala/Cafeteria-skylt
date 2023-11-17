@@ -4,29 +4,15 @@
 import csv
 import unittest
 
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-optionsChrome = webdriver.ChromeOptions()  # Define options for chrome
-optionsChrome.add_argument("headless")  # Pass headless argument to the options (no ui)
-browser = webdriver.Chrome(options=optionsChrome)
+from baseTestClass import BaseTestClass
 
-# Adress to website
-website = "http://127.0.0.1:8000/?products=testProductList.csv&images=testImageList.csv&openHours=testOpenHoursListOpen.csv"
-# Path to product list csv file
+
 productListPath = "public/csv/openHoursList.csv"
-# Resolution on screen
-res = 1080, 1920
 
 
-# Runs tests in Chrome
-class TestOpenHours(unittest.TestCase):
-    @classmethod
-    def setUpClass(self):
-        self.browser = browser
-        browser.get(website)
-        browser.set_window_size(*res)
-
+class TestOpenHours(BaseTestClass):
     def testOpenHours(self):
         # Creates an array with the product data from the csv file
         menuList = []
@@ -64,11 +50,6 @@ class TestOpenHours(unittest.TestCase):
                             menuList[categoryIndex][itemIndex + 1],
                             self.browser.find_element(By.ID, "openHours").text,
                         )
-
-    # Closes the window after all the tests are done
-    @classmethod
-    def tearDownClass(self):
-        self.browser.close()
 
 
 # Starts test if run as python file
