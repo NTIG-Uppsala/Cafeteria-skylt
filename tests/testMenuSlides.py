@@ -6,24 +6,10 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-optionsChrome = webdriver.ChromeOptions()  # Define options for chrome
-optionsChrome.add_argument("headless")  # Pass headless argument to the options (no ui)
-browser = webdriver.Chrome(options=optionsChrome)
-
-# Adress to website
-website = "http://127.0.0.1:8000/?products=testProductList.csv&images=testImageList.csv&openHours=testOpenHoursListOpen.csv"
-# Resolution on screen
-res = 1080, 1920
+from baseTestClass import BaseTestClass
 
 
-# Runs tests in Chrome
-class TestProducts(unittest.TestCase):
-    @classmethod
-    def setUpClass(self):
-        self.browser = browser
-        browser.get(website)
-        browser.set_window_size(*res)
-
+class TestProducts(BaseTestClass):
     def testVisibleProducts(self):
         self.assertIn("Mazariner", self.browser.page_source)
         self.assertIn("Kycklingröra", self.browser.page_source)
@@ -49,11 +35,6 @@ class TestProducts(unittest.TestCase):
         self.assertIn("Ostfralla Kalkon/ost eller ost", fifthSlide.get_attribute("innerHTML"))
         # Check that the assumed first item on the slide is on the correct slide
         self.assertIn("Stor Pucko", fifthSlide.get_attribute("innerHTML"))
-
-    # Closes the window after all the tests are done
-    @classmethod
-    def tearDownClass(self):
-        self.browser.close()
 
 
 # Starts test if run as python file
