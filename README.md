@@ -30,8 +30,6 @@ There are automated tests made with Selenium that use test data.
 
 [Using Raspberry pi](documentation/usingRaspberryPi.md)
 
-[Configure autostart](documentation/autostart.md)
-
 ## Useful configuration tips
 
 [Tips](documentation/configuration.md)
