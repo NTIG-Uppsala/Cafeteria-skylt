@@ -23,7 +23,7 @@ class TestCategories(unittest.TestCase):
         browser.get(website)
         browser.set_window_size(*res)
 
-    def testVisibleProducts(self):
+    def testVisibleCategories(self):
         self.assertIn("Fika", self.browser.page_source)
         self.assertIn("Baguette", self.browser.page_source)
         self.assertIn("Godis", self.browser.page_source)
