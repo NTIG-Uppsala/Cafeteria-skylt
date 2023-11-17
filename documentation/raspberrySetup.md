@@ -165,13 +165,14 @@ Already done if you followed the configuration step
                 sudo cp /home/pi/Git/cafeteria-display/raspberryPi/configuration/pix/splash.png /usr/share/plymouth/themes/pix/splash.png
 ```
 ### Change Background Image:
-```
-Already done if you followed the configuration step
- 
-		1. Right-click on desktop and select desktop preferences.
-		2. Under the desktop tab, in the Picture setting, select the picture named purple-logo.png
-                /home/pi/Git/cafeteria-display/raspberryPi/configuration/wallpaper.png
-```
+
+1. Right-click on desktop and select "Desktop Preferences".
+
+2. Under the "Desktop" tab, click the button on the right of "Picture".
+
+3. In the window that appears, navigate to and choose this file:
+`/home/pi/Git/cafeteria-display/raspberryPi/configuration/wallpaper.png`
+
  
 ### Remote Update Script:
 ```
