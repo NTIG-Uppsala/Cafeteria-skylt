@@ -51,13 +51,13 @@ class TestTime(TestCase):
         self.helperTestClock("2023-05-08T12:54:12", "12:54")
 
     # A helper function for testDateAndWeekday
-    def HelperTestDateAndWeekday(self, date, result, result2):
+    def HelperTestDateAndWeekday(self, date, expectedDate, expectedWeekday):
         # Runs getDate from main.js to change date
         self.browser.execute_script(f"getDate(new Date('{date}'));")
         shownDate = self.browser.find_element(By.ID, "date").text
         shownWeekday = self.browser.find_element(By.ID, "day").text
-        self.assertEqual(shownDate, result)
-        self.assertEqual(shownWeekday, result2)
+        self.assertEqual(shownDate, expectedDate)
+        self.assertEqual(shownWeekday, expectedWeekday)
 
     def testDateAndWeekday(self):
         # Monday
