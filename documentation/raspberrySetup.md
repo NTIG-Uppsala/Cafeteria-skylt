@@ -167,8 +167,6 @@ logo.nologo
 
  
 ### Replace Boot Image:
-
-Already done if you followed the configuration step
  
 Open Command Line Interface and type in the following command:
 ```
@@ -185,8 +183,6 @@ sudo cp /home/pi/Git/cafeteria-display/raspberryPi/configuration/pix/splash.png 
 
  
 ### Remote Update Script:
-
-Already done if you followed the configuration step
  
 To link the python file so it will run when you boot the Raspberry pi and continue to run follow these steps:
 1. Configure git and clone down the cafeteria-display repository in /home/pi/Git
@@ -197,7 +193,7 @@ To link the python file so it will run when you boot the Raspberry pi and contin
     sudo nano /etc/profile
     ```
 
-3. Add the following line at the bottom:
+3. Add the following line at the bottom of the file:
     ```    
     python3 /home/pi/Git/cafeteria-display/raspberryPi/python/loop.py &
     ```
