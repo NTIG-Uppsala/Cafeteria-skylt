@@ -10,6 +10,10 @@ The Raspberry Pi gets the menu and items from a Google Spreadsheets sheet where 
 
 [Link to spreadsheet](https://docs.google.com/spreadsheets/d/1wN90DoWtkIRofBl3Jm_UkQMeDUDMMIszM-5tlwlPICA/)
 
+The Spreadsheet uses an Apps Script. 
+
+[Info about Apps Script](documentation/appsScript.md)
+
 ![Cafeteria-skylten](documentation/images/cafeteriaDisplay.png)
 
 ## Environments and Languages 
