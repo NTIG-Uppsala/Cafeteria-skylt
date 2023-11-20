@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 from baseTestClass import BaseTestClass
 
 
-class TestProducts(BaseTestClass):
+class TestMenuSlides(BaseTestClass):
     def testVisibleProducts(self):
         self.assertIn("Mazariner", self.browser.page_source)
         self.assertIn("Kycklingröra", self.browser.page_source)
