@@ -111,6 +111,17 @@ class Category {
     }
 }
 
+function getProductArrays(dataString){
+    // This splits data into an array of lines
+    const rows = dataString.split("\n");
+    let rawMenuList = rows.map(row => row.split(','));
+
+    // This removes empty items
+    const menuList = rawMenuList.map(row => row.filter(value => value !== ""));
+
+    return menuList;
+}
+
 // This creates slides for the menu
 function getMenuHelper(data) {
     // Hinders the creation of menu slides if closed
@@ -118,12 +129,7 @@ function getMenuHelper(data) {
         return;
     }
 
-    // This splits data into lists
-    const rows = data.split("\n");
-    let rawMenuList = rows.map(row => row.split(','));
-
-    // This removes empty items
-    const menuList = rawMenuList.map(row => row.filter(value => value !== ""));
+    const menuList = getProductArrays(data);
     let container = createContainer();
 
     // This counts items on the slide to make sure it fits
