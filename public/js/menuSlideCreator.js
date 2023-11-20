@@ -45,39 +45,66 @@ function getItemAndPrice(items, i, y) {
     return [itemNameElement, itemPriceElement];
 }
 
-// Makes a new category containing empty divs
-function makeNewCategory(items, categoryIndex) {
-    // Creates a new div for the items and prices
-    let category = document.createElement("div");
-    category.className = "row my-5";
+class Category {
+    constructor(items, categoryIndex){
+        let sectionTitle = items[0 + categoryIndex * 4][0]; // Takes the category title of the current category
+        let sectionHeading = this.#createHeading(sectionTitle);
 
-    // PaddingDiv creates a div that is 2 columns wide
-    let paddingDiv = document.createElement("div");
-    paddingDiv.className = "col-2";
+        let itemDiv = document.createElement("div");
+        let productDiv = this.#createProductDiv(sectionHeading, itemDiv);
+        let paddingDiv = this.#createPaddingDiv();
+        let priceDiv = this.#createPriceDiv();
 
-    let productDiv = document.createElement("div");
-    productDiv.className = "col-7";
+        let section = this.#createSection(paddingDiv, productDiv, priceDiv);
 
-    // h2 is title for the category
-    let header2 = document.createElement("h2");
+        this.section = section;
+        this.itemDiv = itemDiv;
+        this.priceDiv = priceDiv;
+    }
 
-    // Takes the category title of the current category
-    let header2Text = document.createTextNode(items[0 + categoryIndex * 4][0]);
-    header2.appendChild(header2Text);
+    #createPaddingDiv() {
+        // PaddingDiv creates a div that is 2 columns wide
+        let paddingDiv = document.createElement("div");
+        paddingDiv.className = "col-2";
 
-    // Creates a new div for the items and prices and add their classes
-    let itemDiv = document.createElement("div");
-    let priceDiv = document.createElement("div");
-    priceDiv.className = "col-3 text-right aligner";
+        return paddingDiv;
+    }
 
-    productDiv.appendChild(header2);
-    productDiv.appendChild(itemDiv);
+    #createHeading(sectionTitle) {
+        // h2 is title for the category
+        let sectionHeading = document.createElement("h2");
+        sectionHeading.innerText = sectionTitle
 
-    category.appendChild(paddingDiv);
-    category.appendChild(productDiv);
-    category.appendChild(priceDiv);
+        return sectionHeading;
+    }
 
-    return {"section": category, itemDiv, priceDiv};
+    #createPriceDiv() {
+        let priceDiv = document.createElement("div");
+        priceDiv.className = "col-3 text-right aligner";
+
+        return priceDiv;
+    }
+
+    #createProductDiv(sectionHeading, itemDiv) {
+        let productDiv = document.createElement("div");
+        productDiv.className = "col-7";
+        productDiv.appendChild(sectionHeading);
+        productDiv.appendChild(itemDiv);
+
+        return productDiv;
+    }
+
+    #createSection(paddingDiv, productDiv, priceDiv){
+        // Creates a new div for the items and prices
+        let section = document.createElement("div");
+        section.className = "row my-5";
+
+        section.appendChild(paddingDiv);
+        section.appendChild(productDiv);
+        section.appendChild(priceDiv);
+
+        return section;
+    }
 }
 
 // This creates slides for the menu
@@ -124,7 +151,7 @@ function getMenuHelper(data) {
 
                 // This happens if no header has been made, it makes a new section
                 if (!headerHasBeenMade) {
-                    category = makeNewCategory(menuList, productCategory);
+                    category = new Category(menuList, productCategory);
                     headerHasBeenMade = true;
                     currentLineCounter += headerHeightInLines;
                 }
