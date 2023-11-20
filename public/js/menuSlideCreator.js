@@ -132,7 +132,7 @@ function getMenuHelper(data) {
     }
 
     const menuList = getProductArrays(data);
-    let container = createContainer();
+    let slideContent = createContainer();
 
     // This counts items on the slide to make sure it fits
     let currentLineCounter = 0;
@@ -162,15 +162,15 @@ function getMenuHelper(data) {
 
             if (canNotAddItem) {
                 // The current section/header is saved to continue on the new slide
-                container.appendChild(category.section);
+                slideContent.appendChild(category.section);
             }
 
             if (canNotAddHeader || canNotAddItem) {
                 // This makes a new slide
-                newMenuSlide(container);
+                newMenuSlide(slideContent);
                 currentLineCounter = 0;
                 headerHasBeenMade = false;
-                container = createContainer();
+                slideContent = createContainer();
             }
 
             // This happens if no header has been made, it makes a new section
@@ -186,15 +186,15 @@ function getMenuHelper(data) {
             currentLineCounter += itemHeightInLines;
         }
 
-        // Adds category to the container
+        // Adds category to the slideContent container
         if (headerHasBeenMade) {
-            container.appendChild(category.section);
+            slideContent.appendChild(category.section);
         }
     }
 
     // Create a new menuslide with the remaining items
     if (currentLineCounter !== 0) {
-        newMenuSlide(container);
+        newMenuSlide(slideContent);
     }
 }
 
