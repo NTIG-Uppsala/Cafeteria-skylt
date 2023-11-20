@@ -18,6 +18,9 @@ class TestTemporaryClosed(BaseTestClass):
     def testTemporaryClosedText(self):
         self.assertIn("Cafeterian har tillfälligt stängt", self.browser.page_source)
 
+    def testTemporaryClosedReason(self):
+        self.assertIn("sjukdom", self.browser.page_source)
+
 
 # Starts test if run as python file
 if __name__ == "__main__":
