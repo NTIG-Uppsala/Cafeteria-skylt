@@ -150,37 +150,38 @@ function getMenuHelper(data) {
         const categoryName = menuList[0 + productCategoryIndex * 4][0];
 
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
-            if (productVisibilityList[itemIndex] === "FALSE") {
+            const showProduct = productVisibilityList[itemIndex] === "TRUE" || productVisibilityList[itemIndex] === "TRUE\r";
+            if (!showProduct) {
                 continue;
-            } else if (productVisibilityList[itemIndex] === "TRUE" || productVisibilityList[itemIndex] === "TRUE\r") {
-                const canNotAddHeader = (!headerHasBeenMade && currentLineCounter > maxLinesAllowedForNewHeader);
-                const canNotAddItem = (currentLineCounter > maxLinesAllowedForNewItem)
+            } 
+            
+            const canNotAddHeader = (!headerHasBeenMade && currentLineCounter > maxLinesAllowedForNewHeader);
+            const canNotAddItem = (currentLineCounter > maxLinesAllowedForNewItem)
 
-                if (canNotAddItem) {
-                    // The current section/header is saved to continue on the new slide
-                    container.appendChild(category.section);
-                }
-
-                if (canNotAddHeader || canNotAddItem) {
-                    // This makes a new slide
-                    newMenuSlide(container);
-                    currentLineCounter = 0;
-                    headerHasBeenMade = false;
-                    container = createContainer();
-                }
-
-                // This happens if no header has been made, it makes a new section
-                if (!headerHasBeenMade) {
-                    category = new Category(categoryName);
-                    headerHasBeenMade = true;
-                    currentLineCounter += headerHeightInLines;
-                }
-
-                let productName = getItemAndPrice(menuList, productCategoryIndex, itemIndex)[0];
-                let productPrice = getItemAndPrice(menuList, productCategoryIndex, itemIndex)[1];
-                category.addProduct(productName, productPrice);
-                currentLineCounter += itemHeightInLines;
+            if (canNotAddItem) {
+                // The current section/header is saved to continue on the new slide
+                container.appendChild(category.section);
             }
+
+            if (canNotAddHeader || canNotAddItem) {
+                // This makes a new slide
+                newMenuSlide(container);
+                currentLineCounter = 0;
+                headerHasBeenMade = false;
+                container = createContainer();
+            }
+
+            // This happens if no header has been made, it makes a new section
+            if (!headerHasBeenMade) {
+                category = new Category(categoryName);
+                headerHasBeenMade = true;
+                currentLineCounter += headerHeightInLines;
+            }
+
+            let productName = getItemAndPrice(menuList, productCategoryIndex, itemIndex)[0];
+            let productPrice = getItemAndPrice(menuList, productCategoryIndex, itemIndex)[1];
+            category.addProduct(productName, productPrice);
+            currentLineCounter += itemHeightInLines;
         }
 
         // Adds category to the container
