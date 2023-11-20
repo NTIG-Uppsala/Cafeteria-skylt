@@ -45,32 +45,39 @@ function getItemAndPrice(items, i, y) {
     return [itemNameElement, itemPriceElement];
 }
 
-// This makes a new category and puts it in the container
-function makeNewCategory(category, itemDiv, priceDiv, items, i) {
+// Makes a new category containing empty divs
+function makeNewCategory(items, categoryIndex) {
     // Creates a new div for the items and prices
-    category = document.createElement("div");
-    category.className = "row mb-5 mt-5";
+    let category = document.createElement("div");
+    category.className = "row my-5";
 
     // PaddingDiv creates a div that is 2 columns wide
     let paddingDiv = document.createElement("div");
     paddingDiv.className = "col-2";
+
     let productDiv = document.createElement("div");
     productDiv.className = "col-7";
 
-    // h2 is title for each category
+    // h2 is title for the category
     let header2 = document.createElement("h2");
 
     // Takes the category title of the current category
-    let header2Text = document.createTextNode(items[0 + i * 4][0]);
+    let header2Text = document.createTextNode(items[0 + categoryIndex * 4][0]);
     header2.appendChild(header2Text);
 
     // Creates a new div for the items and prices and add their classes
-    itemDiv = document.createElement("div");
-    priceDiv = document.createElement("div");
+    let itemDiv = document.createElement("div");
+    let priceDiv = document.createElement("div");
     priceDiv.className = "col-3 text-right aligner";
-    category.appendChild(paddingDiv);
+
     productDiv.appendChild(header2);
-    return [category, productDiv, itemDiv, priceDiv];
+    productDiv.appendChild(itemDiv);
+
+    category.appendChild(paddingDiv);
+    category.appendChild(productDiv);
+    category.appendChild(priceDiv);
+
+    return {"section": category, itemDiv, priceDiv};
 }
 
 // This creates slides for the menu
@@ -101,7 +108,7 @@ function getMenuHelper(data) {
         let headerHasBeenMade = false;
         const maxLinesAllowedForNewItem = 23 * itemHeightInLines;
         const maxLinesAllowedForNewHeader = maxLinesAllowedForNewItem - headerHeightInLines;
-        let section, itemDiv, priceDiv;
+        let category;
 
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
             if (productVisibilityList[itemIndex] === "FALSE") {
@@ -117,23 +124,20 @@ function getMenuHelper(data) {
 
                 // This happens if no header has been made, it makes a new section
                 if (!headerHasBeenMade) {
-                    [section, productDiv, itemDiv, priceDiv] = makeNewCategory(section, itemDiv, priceDiv, menuList, productCategory);
-                    productDiv.appendChild(itemDiv);
-                    section.appendChild(productDiv);
-                    section.appendChild(priceDiv);
+                    category = makeNewCategory(menuList, productCategory);
                     headerHasBeenMade = true;
                     currentLineCounter += headerHeightInLines;
                 }
 
                 // This gets the item and price and adds it to the item/price div
-                itemDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[0]);
-                priceDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[1]);
+                category.itemDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[0]);
+                category.priceDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[1]);
                 currentLineCounter += itemHeightInLines;
 
                 if (currentLineCounter > maxLinesAllowedForNewItem) {
                     // This makes a new slide
                     // The current section/header is saved to continue on the new slide
-                    container.appendChild(section);
+                    container.appendChild(category.section);
                     newMenuSlide(container);
                     currentLineCounter = 0;
                     headerHasBeenMade = false;
@@ -144,7 +148,7 @@ function getMenuHelper(data) {
 
         // Adds category to the container
         if (headerHasBeenMade) {
-            container.appendChild(section);
+            container.appendChild(category.section);
         }
     }
     
