@@ -31,7 +31,9 @@ class TestMenuSlides(BaseTestClass):
 
         # Check that the assumed last item on the slide is on the correct slide
         self.assertIn("Liten Pucko", fourthSlide.get_attribute("innerHTML"))
-        self.assertIn("Ostfralla Kalkon/ost eller ost", fifthSlide.get_attribute("innerHTML"))
+        self.assertIn(
+            "Ostfralla Kalkon/ost eller ost", fifthSlide.get_attribute("innerHTML")
+        )
         # Check that the assumed first item on the slide is on the correct slide
         self.assertIn("Stor Pucko", fifthSlide.get_attribute("innerHTML"))
 
