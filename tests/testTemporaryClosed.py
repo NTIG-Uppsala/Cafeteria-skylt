@@ -10,6 +10,7 @@ from baseTestClass import BaseTestClass
 
 class TestTemporaryClosed(BaseTestClass):
     website = "http://127.0.0.1:8000/?products=testProductList.csv&images=testImageList.csv&openHours=testOpenHoursListClosed.csv"
+
     def testTemporaryClosedSlidesCount(self):
         slides = self.browser.find_elements(By.CLASS_NAME, "carousel-item")
         # Only one slide should exist when temporary closed
