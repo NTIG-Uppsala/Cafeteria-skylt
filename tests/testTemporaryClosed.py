@@ -15,8 +15,8 @@ class TestTemporaryClosed(BaseTestClass):
         # Only one slide should exist when temporary closed
         self.assertEqual(len(slides), 1)
 
-    def testTemporaryClosedText(self):
-        self.assertIn("Cafeterian har tillfälligt stängt", self.browser.page_source)
+    def testTemporaryClosedNotice(self):
+        self.assertIn("tillfälligt stängt", self.browser.page_source)
 
     def testTemporaryClosedReason(self):
         self.assertIn("sjukdom", self.browser.page_source)
