@@ -6,21 +6,20 @@ const headerHeightInLines = 2 * itemHeightInLines;
 const linesPerCategory = 4;
 
 // Adds a new slide to the carousel
-function newMenuSlide(container) {
+function newMenuSlide(slideContent) {
     // Creates a new div for the slide and adds classes and attributes
     const slide = document.createElement("div");
     slide.className = "carousel-item slide";
 
-    // Sets the duration of the slide to 10 seconds
-    slide.setAttribute("data-interval", "10000");
+    slide.setAttribute("data-interval", "10000"); // Sets the duration of the slide to 10 seconds
     slide.setAttribute("style", "background-color: #190f27;");
 
     // SlideCaption adds the div that the container is in
     const slideCaption = document.createElement("div");
     slideCaption.className = "carousel-caption d-none d-md-block priceList";
     slideCaption.setAttribute("style", "margin-top: 26vh;");
+    slideCaption.appendChild(slideContent);
     slide.appendChild(slideCaption);
-    slideCaption.appendChild(container);
 
     // Adds the slide to the carousel
     const carousel = document.getElementById("menu");
