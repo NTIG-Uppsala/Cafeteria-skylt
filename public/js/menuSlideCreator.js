@@ -46,10 +46,8 @@ function getItemAndPrice(items, i, y) {
 }
 
 class Category {
-    constructor(items, categoryIndex){
-        let sectionTitle = items[0 + categoryIndex * 4][0]; // Takes the category title of the current category
-        let sectionHeading = this.#createHeading(sectionTitle);
-
+    constructor(categoryName){
+        let sectionHeading = this.#createHeading(categoryName);
         let itemDiv = document.createElement("div");
         let productDiv = this.#createProductDiv(sectionHeading, itemDiv);
         let paddingDiv = this.#createPaddingDiv();
@@ -142,6 +140,8 @@ function getMenuHelper(data) {
         const maxLinesAllowedForNewItem = 23 * itemHeightInLines;
         const maxLinesAllowedForNewHeader = maxLinesAllowedForNewItem - headerHeightInLines;
         let category;
+        // Takes the category title of the current category
+        const categoryName = menuList[0 + productCategory * 4][0];
 
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
             if (productVisibilityList[itemIndex] === "FALSE") {
@@ -157,7 +157,7 @@ function getMenuHelper(data) {
 
                 // This happens if no header has been made, it makes a new section
                 if (!headerHasBeenMade) {
-                    category = new Category(menuList, productCategory);
+                    category = new Category(categoryName);
                     headerHasBeenMade = true;
                     currentLineCounter += headerHeightInLines;
                 }
