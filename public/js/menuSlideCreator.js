@@ -2,6 +2,8 @@
 const itemHeightInLines = 1;
 // A value that should roughly reflect how many times greater the height of a header is compared to an item's height
 const headerHeightInLines = 2 * itemHeightInLines;
+// The number of rows per category in the csv file containing products
+const linesPerCategory = 4;
 
 // Adds a new slide to the carousel
 function newMenuSlide(container) {
@@ -37,10 +39,10 @@ function getItemAndPrice(items, i, y) {
     const itemNameElement = document.createElement("p");
 
     // Takes the item and price of the current item
-    const itemText = document.createTextNode(items[0 + i * 4][y]);
+    const itemText = document.createTextNode(items[0 + i * linesPerCategory][y]);
     itemNameElement.appendChild(itemText);
     const itemPriceElement = document.createElement("p");
-    const priceText = document.createTextNode(items[1 + i * 4][y]);
+    const priceText = document.createTextNode(items[1 + i * linesPerCategory][y]);
     itemPriceElement.appendChild(priceText);
     return [itemNameElement, itemPriceElement];
 }
@@ -136,18 +138,18 @@ function getMenuHelper(data) {
     let currentLineCounter = 0;
 
     // Divides by four because each category takes up four lines
-    let productCategoryCount = menuList.length / 4;
+    let productCategoryCount = menuList.length / linesPerCategory;
 
     // This loops through the categories
     for (let productCategoryIndex = 0; productCategoryIndex < productCategoryCount; productCategoryIndex++) {
         // List of booleans for each category
-        const productVisibilityList = menuList[2 + productCategoryIndex * 4];
+        const productVisibilityList = menuList[2 + productCategoryIndex * linesPerCategory];
         let headerHasBeenMade = false;
         const maxLinesAllowedForNewItem = 23 * itemHeightInLines;
         const maxLinesAllowedForNewHeader = maxLinesAllowedForNewItem - headerHeightInLines;
         let category;
         // Takes the category title of the current category
-        const categoryName = menuList[0 + productCategoryIndex * 4][0];
+        const categoryName = menuList[0 + productCategoryIndex * linesPerCategory][0];
 
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
             const showProduct = productVisibilityList[itemIndex] === "TRUE" || productVisibilityList[itemIndex] === "TRUE\r";
