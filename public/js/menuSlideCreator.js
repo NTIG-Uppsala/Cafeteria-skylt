@@ -133,15 +133,15 @@ function getMenuHelper(data) {
     let productCategoryCount = menuList.length / 4;
 
     // This loops through the categories
-    for (let productCategory = 0; productCategory < productCategoryCount; productCategory++) {
+    for (let productCategoryIndex = 0; productCategoryIndex < productCategoryCount; productCategoryIndex++) {
         // List of booleans for each category
-        const productVisibilityList = menuList[2 + productCategory * 4];
+        const productVisibilityList = menuList[2 + productCategoryIndex * 4];
         let headerHasBeenMade = false;
         const maxLinesAllowedForNewItem = 23 * itemHeightInLines;
         const maxLinesAllowedForNewHeader = maxLinesAllowedForNewItem - headerHeightInLines;
         let category;
         // Takes the category title of the current category
-        const categoryName = menuList[0 + productCategory * 4][0];
+        const categoryName = menuList[0 + productCategoryIndex * 4][0];
 
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
             if (productVisibilityList[itemIndex] === "FALSE") {
@@ -162,8 +162,8 @@ function getMenuHelper(data) {
                     currentLineCounter += headerHeightInLines;
                 }
 
-                let productName = getItemAndPrice(menuList, productCategory, itemIndex)[0];
-                let productPrice = getItemAndPrice(menuList, productCategory, itemIndex)[1];
+                let productName = getItemAndPrice(menuList, productCategoryIndex, itemIndex)[0];
+                let productPrice = getItemAndPrice(menuList, productCategoryIndex, itemIndex)[1];
                 category.addProduct(productName, productPrice);
                 currentLineCounter += itemHeightInLines;
 
