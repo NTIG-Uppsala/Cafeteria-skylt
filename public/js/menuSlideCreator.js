@@ -62,6 +62,12 @@ class Category {
         this.priceDiv = priceDiv;
     }
 
+    addProduct(name, price) {
+        // This gets the item and price and adds it to the item/price div
+        this.itemDiv.appendChild(name);
+        this.priceDiv.appendChild(price);
+    }
+
     #createPaddingDiv() {
         // PaddingDiv creates a div that is 2 columns wide
         let paddingDiv = document.createElement("div");
@@ -156,9 +162,9 @@ function getMenuHelper(data) {
                     currentLineCounter += headerHeightInLines;
                 }
 
-                // This gets the item and price and adds it to the item/price div
-                category.itemDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[0]);
-                category.priceDiv.appendChild(getItemAndPrice(menuList, productCategory, itemIndex)[1]);
+                let productName = getItemAndPrice(menuList, productCategory, itemIndex)[0];
+                let productPrice = getItemAndPrice(menuList, productCategory, itemIndex)[1];
+                category.addProduct(productName, productPrice);
                 currentLineCounter += itemHeightInLines;
 
                 if (currentLineCounter > maxLinesAllowedForNewItem) {
