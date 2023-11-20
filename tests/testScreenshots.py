@@ -1,37 +1,24 @@
 # !IMPORTANT!
 # Run startServer.py in terminal before running this test
 
-import os
 import time
 import unittest
 from os import mkdir, path
 
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-optionsChrome = webdriver.ChromeOptions()  # Define options for chrome
-optionsChrome.add_argument("headless")  # Pass headless argument to the options (no ui)
-browser = webdriver.Chrome(options=optionsChrome)
-
-website = "http://127.0.0.1:8000/?products=productList.csv&images=imageList.csv&openHours=openHoursList.csv"
-res = 1080, 1920
+from baseTestClass import BaseTestClass
 
 
-# Runs tests in Chrome
-class TestScreenshots(unittest.TestCase):
-    @classmethod
-    def setUpClass(self):
-        self.browser = browser
-        browser.get(website)
-        browser.get(website)
-        browser.set_window_size(*res)
+class TestScreenshots(BaseTestClass):
+    website = "http://127.0.0.1:8000"
 
     # Scrolls to every slide and saves a screenshot
     def testSaveScreenshot(self):
         # Gets number of slides on page
-        nr_of_slides = len(browser.find_elements(By.CLASS_NAME, "carousel-item"))
+        nr_of_slides = len(self.browser.find_elements(By.CLASS_NAME, "carousel-item"))
         screenshot_nr = 1
         time.sleep(2)
         element_present = EC.presence_of_element_located(
@@ -46,11 +33,6 @@ class TestScreenshots(unittest.TestCase):
             self.browser.execute_script("$('.carousel').carousel('next')")
             time.sleep(1)
             screenshot_nr += 1
-
-    # Closes the window after all the tests are done
-    @classmethod
-    def tearDownClass(self):
-        self.browser.close()
 
 
 # Starts test if run as python file

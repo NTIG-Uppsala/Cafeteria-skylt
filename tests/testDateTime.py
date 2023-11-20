@@ -1,39 +1,11 @@
-from os import getcwd, path
-from unittest import TestCase, main
+from unittest import main
 
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
+from baseTestClass import BaseTestClass
 
-class TestTime(TestCase):
-    doNotCloseBrowser = False
-    hideWindow = True
 
-    @classmethod
-    def setUpClass(cls):
-        chr_options = Options()
-
-        chr_options.add_experimental_option("excludeSwitches", ["enable-logging"])
-
-        if cls.doNotCloseBrowser:
-            chr_options.add_experimental_option("detach", True)
-
-        if cls.hideWindow:
-            chr_options.add_argument("--headless")
-
-        cls.browser = webdriver.Chrome(options=chr_options)
-
-    @classmethod
-    def tearDownClass(cls):
-        pass
-
-    def setUp(self):
-        self.browser.get(path.join(getcwd(), "./public/index.html"))
-
-    def tearDown(self):
-        self.browser.get("about:blank")
-
+class TestTime(BaseTestClass):
     # A helper function for testClock
     def helperTestClock(self, date, result):
         # Runs getTime from main.js to change time
@@ -51,13 +23,13 @@ class TestTime(TestCase):
         self.helperTestClock("2023-05-08T12:54:12", "12:54")
 
     # A helper function for testDateAndWeekday
-    def HelperTestDateAndWeekday(self, date, result, result2):
+    def HelperTestDateAndWeekday(self, date, expectedDate, expectedWeekday):
         # Runs getDate from main.js to change date
         self.browser.execute_script(f"getDate(new Date('{date}'));")
         shownDate = self.browser.find_element(By.ID, "date").text
         shownWeekday = self.browser.find_element(By.ID, "day").text
-        self.assertEqual(shownDate, result)
-        self.assertEqual(shownWeekday, result2)
+        self.assertEqual(shownDate, expectedDate)
+        self.assertEqual(shownWeekday, expectedWeekday)
 
     def testDateAndWeekday(self):
         # Monday
