@@ -46,7 +46,7 @@ function getItemAndPrice(items, i, y) {
 }
 
 class Category {
-    constructor(categoryName){
+    constructor(categoryName) {
         let sectionHeading = this.#createHeading(categoryName);
         let itemDiv = document.createElement("div");
         let productDiv = this.#createProductDiv(sectionHeading, itemDiv);
@@ -98,7 +98,7 @@ class Category {
         return productDiv;
     }
 
-    #createSection(paddingDiv, productDiv, priceDiv){
+    #createSection(paddingDiv, productDiv, priceDiv) {
         // Creates a new div for the items and prices
         let section = document.createElement("div");
         section.className = "row my-5";
@@ -147,7 +147,15 @@ function getMenuHelper(data) {
             if (productVisibilityList[itemIndex] === "FALSE") {
                 continue;
             } else if (productVisibilityList[itemIndex] === "TRUE" || productVisibilityList[itemIndex] === "TRUE\r") {
-                if (!headerHasBeenMade && currentLineCounter > maxLinesAllowedForNewHeader) {
+                const canNotAddHeader = (!headerHasBeenMade && currentLineCounter > maxLinesAllowedForNewHeader);
+                const canNotAddItem = (currentLineCounter > maxLinesAllowedForNewItem)
+
+                if (canNotAddItem) {
+                    // The current section/header is saved to continue on the new slide
+                    container.appendChild(category.section);
+                }
+
+                if (canNotAddHeader || canNotAddItem) {
                     // This makes a new slide
                     newMenuSlide(container);
                     currentLineCounter = 0;
@@ -166,16 +174,6 @@ function getMenuHelper(data) {
                 let productPrice = getItemAndPrice(menuList, productCategoryIndex, itemIndex)[1];
                 category.addProduct(productName, productPrice);
                 currentLineCounter += itemHeightInLines;
-
-                if (currentLineCounter > maxLinesAllowedForNewItem) {
-                    // This makes a new slide
-                    // The current section/header is saved to continue on the new slide
-                    container.appendChild(category.section);
-                    newMenuSlide(container);
-                    currentLineCounter = 0;
-                    headerHasBeenMade = false;
-                    container = createContainer();
-                }
             }
         }
 
@@ -184,7 +182,7 @@ function getMenuHelper(data) {
             container.appendChild(category.section);
         }
     }
-    
+
     // Create a new menuslide with the remaining items
     if (currentLineCounter !== 0) {
         newMenuSlide(container);
