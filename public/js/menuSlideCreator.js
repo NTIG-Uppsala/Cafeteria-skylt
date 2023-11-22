@@ -4,6 +4,10 @@ const itemHeightInLines = 1;
 const headerHeightInLines = 2 * itemHeightInLines;
 // The number of rows per category in the csv file containing products
 const linesPerCategory = 4;
+// Used to index different rows within each category
+const nameRowIndex = 0;
+const priceRowIndex = 1;
+const visibilityRowIndex = 2;
 
 // Adds a new slide to the carousel
 function newMenuSlide(slideContent) {
@@ -33,19 +37,6 @@ function createContainer() {
     return container;
 }
 
-function getItemAndPrice(items, i, y) {
-    // Creates a new p for the item and price 
-    const itemNameElement = document.createElement("p");
-
-    // Takes the item and price of the current item
-    const itemText = document.createTextNode(items[0 + i * linesPerCategory][y]);
-    itemNameElement.appendChild(itemText);
-    const itemPriceElement = document.createElement("p");
-    const priceText = document.createTextNode(items[1 + i * linesPerCategory][y]);
-    itemPriceElement.appendChild(priceText);
-    return [itemNameElement, itemPriceElement];
-}
-
 class Category {
     constructor(categoryName) {
         let sectionHeading = this.#createHeading(categoryName);
@@ -62,9 +53,14 @@ class Category {
     }
 
     addProduct(name, price) {
-        // This gets the item and price and adds it to the item/price div
-        this.itemDiv.appendChild(name);
-        this.priceDiv.appendChild(price);
+        const itemNameElement = document.createElement("p");
+        const itemPriceElement = document.createElement("p");
+
+        itemNameElement.innerText = name;
+        itemPriceElement.innerText = price;
+
+        this.itemDiv.appendChild(itemNameElement);
+        this.priceDiv.appendChild(itemPriceElement);
     }
 
     #createPaddingDiv() {
@@ -142,20 +138,20 @@ function getMenuHelper(data) {
     // This loops through the categories
     for (let productCategoryIndex = 0; productCategoryIndex < productCategoryCount; productCategoryIndex++) {
         // List of booleans for each category
-        const productVisibilityList = menuList[2 + productCategoryIndex * linesPerCategory];
+        const productVisibilityList = menuList[visibilityRowIndex + productCategoryIndex * linesPerCategory];
         let headerHasBeenMade = false;
         const maxLinesAllowedForNewItem = 23 * itemHeightInLines;
         const maxLinesAllowedForNewHeader = maxLinesAllowedForNewItem - headerHeightInLines;
         let category;
         // Takes the category title of the current category
-        const categoryName = menuList[0 + productCategoryIndex * linesPerCategory][0];
+        const categoryName = menuList[nameRowIndex + productCategoryIndex * linesPerCategory][0];
 
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
             const showProduct = productVisibilityList[itemIndex] === "TRUE" || productVisibilityList[itemIndex] === "TRUE\r";
             if (!showProduct) {
                 continue;
             } 
-            
+
             const canNotAddHeader = (!headerHasBeenMade && currentLineCounter > maxLinesAllowedForNewHeader);
             const canNotAddItem = (currentLineCounter > maxLinesAllowedForNewItem)
 
@@ -178,9 +174,9 @@ function getMenuHelper(data) {
                 headerHasBeenMade = true;
                 currentLineCounter += headerHeightInLines;
             }
-
-            let productName = getItemAndPrice(menuList, productCategoryIndex, itemIndex)[0];
-            let productPrice = getItemAndPrice(menuList, productCategoryIndex, itemIndex)[1];
+            
+            const productName = menuList[nameRowIndex + productCategoryIndex * linesPerCategory][itemIndex]
+            const productPrice = menuList[priceRowIndex + productCategoryIndex * linesPerCategory][itemIndex]
             category.addProduct(productName, productPrice);
             currentLineCounter += itemHeightInLines;
         }
