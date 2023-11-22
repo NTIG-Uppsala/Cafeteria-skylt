@@ -105,10 +105,10 @@ function getProductArrays(dataString){
     const rows = dataString.split("\n");
     let rawMenuList = rows.map(row => row.split(','));
 
-    // This removes empty items
-    let menuList = rawMenuList.map(row => row.filter(value => value !== ""));
     // This removes whitespace characters like "\r"
-    menuList = menuList.map(row => row.map(value => value.trim()))
+    let menuList = rawMenuList.map(row => row.map(value => value.trim()));
+    // This removes empty items
+    menuList = menuList.map(row => row.filter(value => value !== ""));
 
     return menuList;
 }
