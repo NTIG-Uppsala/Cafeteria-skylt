@@ -153,8 +153,9 @@ function createMenuSlides(data) {
     let slideCreator = new MenuSlidesCreator();
 
     for (let categoryIndex = 0; categoryIndex < categoryCount; categoryIndex++) {
-        const categoryName = menuList[nameRowIndex + categoryIndex * linesPerCategory][0];
-        const productVisibilityList = menuList[visibilityRowIndex + categoryIndex * linesPerCategory];
+        const categoryStartRow = categoryIndex * linesPerCategory;
+        const categoryName = menuList[nameRowIndex + categoryStartRow][0];
+        const productVisibilityList = menuList[visibilityRowIndex + categoryStartRow];
         const productCount = productVisibilityList.length - 1;
 
         if (productCount <= 0) {
@@ -167,8 +168,8 @@ function createMenuSlides(data) {
         slideCreator.addCategory(categoryName);
         
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
-            const productName = menuList[nameRowIndex + categoryIndex * linesPerCategory][itemIndex];
-            const productPrice = menuList[priceRowIndex + categoryIndex * linesPerCategory][itemIndex];
+            const productName = menuList[nameRowIndex + categoryStartRow][itemIndex];
+            const productPrice = menuList[priceRowIndex + categoryStartRow][itemIndex];
             const showProduct = productVisibilityList[itemIndex] === "TRUE";
 
             if (!showProduct) {
