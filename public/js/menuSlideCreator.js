@@ -2,7 +2,7 @@
 const itemHeightInLines = 1;
 // A value that should roughly reflect how many times greater the height of a header is compared to an item's height
 const headerHeightInLines = 2 * itemHeightInLines;
-// The number of rows per category in the csv file containing products
+// The number of rows per category in the product list csv file
 const linesPerCategory = 4;
 // Used to index different rows within each category
 const nameRowIndex = 0;
@@ -18,12 +18,12 @@ function newMenuSlide(slideContent) {
     slide.setAttribute("data-interval", "10000"); // Sets the duration of the slide to 10 seconds
     slide.setAttribute("style", "background-color: #190f27;");
 
-    // SlideCaption adds the div that the container is in
-    const slideCaption = document.createElement("div");
-    slideCaption.className = "carousel-caption d-none d-md-block priceList";
-    slideCaption.setAttribute("style", "margin-top: 26vh;");
-    slideCaption.appendChild(slideContent);
-    slide.appendChild(slideCaption);
+    // slideWrapper is the div that contains the slide content
+    const slideWrapper = document.createElement("div");
+    slideWrapper.className = "carousel-caption d-none d-md-block priceList";
+    slideWrapper.setAttribute("style", "margin-top: 26vh;");
+    slideWrapper.appendChild(slideContent);
+    slide.appendChild(slideWrapper);
 
     // Adds the slide to the carousel
     const carousel = document.getElementById("menu");
