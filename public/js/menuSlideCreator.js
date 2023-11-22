@@ -132,18 +132,18 @@ function createMenuSlides(data) {
     const maxLinesAllowedForNewHeader = maxLinesAllowedForNewItem - headerHeightInLines;
 
     // Divides by four because each category takes up four lines
-    let productCategoryCount = menuList.length / linesPerCategory;
+    let categoryCount = menuList.length / linesPerCategory;
 
     let category;
 
     // This loops through the categories
-    for (let productCategoryIndex = 0; productCategoryIndex < productCategoryCount; productCategoryIndex++) {
+    for (let categoryIndex = 0; categoryIndex < categoryCount; categoryIndex++) {
         // List of strings to determine the visibility of items
-        const productVisibilityList = menuList[visibilityRowIndex + productCategoryIndex * linesPerCategory];
+        const productVisibilityList = menuList[visibilityRowIndex + categoryIndex * linesPerCategory];
 
         let headerHasBeenMade = false;
         // Takes the category title of the current category
-        const categoryName = menuList[nameRowIndex + productCategoryIndex * linesPerCategory][0];
+        const categoryName = menuList[nameRowIndex + categoryIndex * linesPerCategory][0];
 
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
             const showProduct = productVisibilityList[itemIndex] === "TRUE";
@@ -154,8 +154,8 @@ function createMenuSlides(data) {
             const canNotAddItem = (currentLineCounter > maxLinesAllowedForNewItem);
 
             // Takes the name and price of the current product
-            const productName = menuList[nameRowIndex + productCategoryIndex * linesPerCategory][itemIndex];
-            const productPrice = menuList[priceRowIndex + productCategoryIndex * linesPerCategory][itemIndex];
+            const productName = menuList[nameRowIndex + categoryIndex * linesPerCategory][itemIndex];
+            const productPrice = menuList[priceRowIndex + categoryIndex * linesPerCategory][itemIndex];
 
             if (!showProduct) {
                 continue;
