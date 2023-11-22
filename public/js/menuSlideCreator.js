@@ -121,8 +121,9 @@ function createMenuSlides(data) {
     }
 
     const menuList = getProductArrays(data);
-    // Creates the first container
+    // Creates the first container and adds it to the slide
     let slideContent = createContainer();
+    newMenuSlide(slideContent);
 
     // Keeps track of total height of added items
     let currentLineCounter = 0;
@@ -147,11 +148,12 @@ function createMenuSlides(data) {
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
             const showProduct = productVisibilityList[itemIndex] === "TRUE";
 
-            // Checks if a header can be added to the current slide
+            // Checks whether or not a header can be added to the current slide
             const canNotAddHeader = (!headerHasBeenMade && currentLineCounter > maxLinesAllowedForNewHeader);
-            // Checks if an item should 
+            // Checks whether or not an item can be added to the current slide
             const canNotAddItem = (currentLineCounter > maxLinesAllowedForNewItem);
 
+            // Takes the name and price of the current product
             const productName = menuList[nameRowIndex + productCategoryIndex * linesPerCategory][itemIndex];
             const productPrice = menuList[priceRowIndex + productCategoryIndex * linesPerCategory][itemIndex];
 
@@ -165,16 +167,15 @@ function createMenuSlides(data) {
             }
 
             if (canNotAddHeader || canNotAddItem) {
-                // This makes a new slide
+                slideContent = createContainer();
                 newMenuSlide(slideContent);
                 currentLineCounter = 0;
                 headerHasBeenMade = false;
-                slideContent = createContainer();
             }
 
-            // This happens if no header has been made, it makes a new section
             if (!headerHasBeenMade) {
                 category = new Category(categoryName);
+                // These variables are changed since the new category includes a header
                 headerHasBeenMade = true;
                 currentLineCounter += headerHeightInLines;
             }
@@ -187,11 +188,6 @@ function createMenuSlides(data) {
         if (headerHasBeenMade) {
             slideContent.appendChild(category.section);
         }
-    }
-
-    // Create a new menuslide with the remaining items
-    if (currentLineCounter !== 0) {
-        newMenuSlide(slideContent);
     }
 }
 
