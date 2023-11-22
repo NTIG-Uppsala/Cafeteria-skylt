@@ -112,13 +112,11 @@ class MenuSlidesCreator {
         this.slideContent = createContainer();
         newMenuSlide(this.slideContent);
         this.currentLineCounter = 0;
-        this.headerHasBeenMade = false;
     }
 
     addCategory(categoryName) {
         this.category = new Category(categoryName);
         this.slideContent.appendChild(this.category.section);
-        this.headerHasBeenMade = true;
         this.currentLineCounter += headerHeightInLines;
     }
 
@@ -169,7 +167,6 @@ function createMenuSlides(data) {
             continue;
         }
 
-        slideCreator.headerHasBeenMade = false;
         if (!slideCreator.enoughSpaceToAddCategory()) {
             slideCreator.addSlide();
         }
