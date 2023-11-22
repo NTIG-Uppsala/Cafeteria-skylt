@@ -24,13 +24,6 @@ function newMenuSlide(slideContent) {
     carousel.appendChild(slide);
 }
 
-function createContainer() {
-    // Creates a new empty container
-    container = document.createElement("div");
-    container.className = "container";
-    return container;
-}
-
 class Category {
     // Creates an empty category
     constructor(categoryName) {
@@ -109,7 +102,8 @@ class MenuSlidesCreator {
     }
 
     addSlide() {
-        this.slideContent = createContainer();
+        this.slideContent = document.createElement("div");
+        this.slideContent.className = "container";
         newMenuSlide(this.slideContent);
         this.currentLineCounter = 0;
     }
@@ -162,7 +156,7 @@ function createMenuSlides(data) {
         const categoryName = menuList[nameRowIndex + categoryIndex * linesPerCategory][0];
         const productVisibilityList = menuList[visibilityRowIndex + categoryIndex * linesPerCategory];
         const productCount = productVisibilityList.length - 1;
-        console.log(productVisibilityList);
+
         if (productCount <= 0) {
             continue;
         }
@@ -171,6 +165,7 @@ function createMenuSlides(data) {
             slideCreator.addSlide();
         }
         slideCreator.addCategory(categoryName);
+        
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
             const productName = menuList[nameRowIndex + categoryIndex * linesPerCategory][itemIndex];
             const productPrice = menuList[priceRowIndex + categoryIndex * linesPerCategory][itemIndex];
@@ -179,6 +174,7 @@ function createMenuSlides(data) {
             if (!showProduct) {
                 continue;
             }
+
             if (!slideCreator.enoughSpaceToAddProduct()) {
                 slideCreator.addSlide();
                 slideCreator.addCategory(categoryName);
