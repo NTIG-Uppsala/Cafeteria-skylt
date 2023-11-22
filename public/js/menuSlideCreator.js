@@ -9,6 +9,9 @@ const nameRowIndex = 0;
 const priceRowIndex = 1;
 const visibilityRowIndex = 2;
 
+const maxLinesAllowedForNewItem = 23 * itemHeightInLines;
+const maxLinesAllowedForNewHeader = maxLinesAllowedForNewItem - headerHeightInLines;
+
 // Adds a new slide to the carousel
 function newMenuSlide(slideContent) {
     const slide = document.createElement("div");
@@ -100,6 +103,39 @@ class Category {
     }
 }
 
+class MenuSlidesCreator {
+    constructor() {
+        this.addSlide();
+    }
+
+    addSlide() {
+        this.slideContent = createContainer();
+        newMenuSlide(this.slideContent);
+        this.currentLineCounter = 0;
+        this.headerHasBeenMade = false;
+    }
+
+    addCategory(categoryName) {
+        this.category = new Category(categoryName);
+        this.slideContent.appendChild(this.category.section);
+        this.headerHasBeenMade = true;
+        this.currentLineCounter += headerHeightInLines;
+    }
+
+    addProduct(productName, productPrice) {
+        this.category.addProduct(productName, productPrice);
+        this.currentLineCounter += itemHeightInLines;
+    }
+
+    enoughSpaceToAddCategory() {
+        return !(!this.headerHasBeenMade && this.currentLineCounter > maxLinesAllowedForNewHeader);
+    }
+
+    enoughSpaceToAddProduct() {
+        return !(this.currentLineCounter > maxLinesAllowedForNewItem);
+    }
+}
+
 function getProductArrays(dataString){
     // This splits data into an array of lines
     const rows = dataString.split("\n");
@@ -121,72 +157,36 @@ function createMenuSlides(data) {
     }
 
     const menuList = getProductArrays(data);
-    // Creates the first container and adds it to the slide
-    let slideContent = createContainer();
-    newMenuSlide(slideContent);
-
-    // Keeps track of total height of added items
-    let currentLineCounter = 0;
-
-    const maxLinesAllowedForNewItem = 23 * itemHeightInLines;
-    const maxLinesAllowedForNewHeader = maxLinesAllowedForNewItem - headerHeightInLines;
-
-    // Divides by four because each category takes up four lines
     let categoryCount = menuList.length / linesPerCategory;
+    let slideCreator = new MenuSlidesCreator();
 
-    let category;
-
-    // This loops through the categories
     for (let categoryIndex = 0; categoryIndex < categoryCount; categoryIndex++) {
-        // List of strings to determine the visibility of items
-        const productVisibilityList = menuList[visibilityRowIndex + categoryIndex * linesPerCategory];
-
-        let headerHasBeenMade = false;
-        // Takes the category title of the current category
         const categoryName = menuList[nameRowIndex + categoryIndex * linesPerCategory][0];
+        const productVisibilityList = menuList[visibilityRowIndex + categoryIndex * linesPerCategory];
+        const productCount = productVisibilityList.length - 1;
+        console.log(productVisibilityList);
+        if (productCount <= 0) {
+            continue;
+        }
 
+        slideCreator.headerHasBeenMade = false;
+        if (!slideCreator.enoughSpaceToAddCategory()) {
+            slideCreator.addSlide();
+        }
+        slideCreator.addCategory(categoryName);
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
-            const showProduct = productVisibilityList[itemIndex] === "TRUE";
-
-            // Checks whether or not a header can be added to the current slide
-            const canNotAddHeader = (!headerHasBeenMade && currentLineCounter > maxLinesAllowedForNewHeader);
-            // Checks whether or not an item can be added to the current slide
-            const canNotAddItem = (currentLineCounter > maxLinesAllowedForNewItem);
-
-            // Takes the name and price of the current product
             const productName = menuList[nameRowIndex + categoryIndex * linesPerCategory][itemIndex];
             const productPrice = menuList[priceRowIndex + categoryIndex * linesPerCategory][itemIndex];
+            const showProduct = productVisibilityList[itemIndex] === "TRUE";
 
             if (!showProduct) {
                 continue;
             }
-
-            if (canNotAddItem) {
-                // The current section/header is saved to continue on the new slide
-                slideContent.appendChild(category.section);
+            if (!slideCreator.enoughSpaceToAddProduct()) {
+                slideCreator.addSlide();
+                slideCreator.addCategory(categoryName);
             }
-
-            if (canNotAddHeader || canNotAddItem) {
-                slideContent = createContainer();
-                newMenuSlide(slideContent);
-                currentLineCounter = 0;
-                headerHasBeenMade = false;
-            }
-
-            if (!headerHasBeenMade) {
-                category = new Category(categoryName);
-                // These variables are changed since the new category includes a header
-                headerHasBeenMade = true;
-                currentLineCounter += headerHeightInLines;
-            }
-
-            category.addProduct(productName, productPrice);
-            currentLineCounter += itemHeightInLines;
-        }
-
-        // Adds category to the slideContent container
-        if (headerHasBeenMade) {
-            slideContent.appendChild(category.section);
+            slideCreator.addProduct(productName, productPrice);
         }
     }
 }
