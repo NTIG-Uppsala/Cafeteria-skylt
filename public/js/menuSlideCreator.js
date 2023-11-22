@@ -128,11 +128,11 @@ class MenuSlidesCreator {
     }
 
     enoughSpaceToAddCategory() {
-        return !(!this.headerHasBeenMade && this.currentLineCounter > maxLinesAllowedForNewHeader);
+        return this.currentLineCounter <= maxLinesAllowedForNewHeader;
     }
 
     enoughSpaceToAddProduct() {
-        return !(this.currentLineCounter > maxLinesAllowedForNewItem);
+        return this.currentLineCounter <= maxLinesAllowedForNewItem;
     }
 }
 
