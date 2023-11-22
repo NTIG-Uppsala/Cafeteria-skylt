@@ -29,17 +29,18 @@ function createContainer() {
 }
 
 class Category {
+    // Creates an empty category
     constructor(categoryName) {
         let sectionHeading = this.#createHeading(categoryName);
-        let itemDiv = document.createElement("div");
-        let productDiv = this.#createProductDiv(sectionHeading, itemDiv);
+        let nameDiv = document.createElement("div");
+        let productDiv = this.#createProductDiv(sectionHeading, nameDiv);
         let paddingDiv = this.#createPaddingDiv();
         let priceDiv = this.#createPriceDiv();
 
         let section = this.#createSection(paddingDiv, productDiv, priceDiv);
 
         this.section = section;
-        this.itemDiv = itemDiv;
+        this.nameDiv = nameDiv;
         this.priceDiv = priceDiv;
     }
 
@@ -50,7 +51,7 @@ class Category {
         itemNameElement.innerText = name;
         itemPriceElement.innerText = price;
 
-        this.itemDiv.appendChild(itemNameElement);
+        this.nameDiv.appendChild(itemNameElement);
         this.priceDiv.appendChild(itemPriceElement);
     }
 
@@ -77,11 +78,11 @@ class Category {
         return priceDiv;
     }
 
-    #createProductDiv(sectionHeading, itemDiv) {
+    #createProductDiv(sectionHeading, nameDiv) {
         let productDiv = document.createElement("div");
         productDiv.className = "col-7";
         productDiv.appendChild(sectionHeading);
-        productDiv.appendChild(itemDiv);
+        productDiv.appendChild(nameDiv);
 
         return productDiv;
     }
