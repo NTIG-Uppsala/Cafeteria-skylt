@@ -112,7 +112,7 @@ function getProductArrays(dataString){
 }
 
 // This creates slides for the menu
-function getMenuHelper(data) {
+function createMenuSlides(data) {
     // Hinders the creation of menu slides if closed
     if (isClosed) {
         return;

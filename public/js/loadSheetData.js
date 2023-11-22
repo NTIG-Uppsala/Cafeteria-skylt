@@ -39,7 +39,7 @@ function getMenu() {
     $.ajax({
         type: 'GET',
         url: "http://127.0.0.1:8000/csv/" + productListPath,
-        success: function (data) { getMenuHelper(data) }
+        success: function (data) { createMenuSlides(data) }
     });
 }
 
