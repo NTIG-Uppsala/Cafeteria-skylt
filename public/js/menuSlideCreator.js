@@ -20,7 +20,7 @@ function newMenuSlide(slideContent) {
 
     // slideWrapper is the div that contains the slide content
     const slideWrapper = document.createElement("div");
-    slideWrapper.className = "carousel-caption d-none d-md-block priceList";
+    slideWrapper.className = "text-light d-none d-md-block priceList";
     slideWrapper.setAttribute("style", "margin-top: 26vh;");
     slideWrapper.appendChild(slideContent);
     slide.appendChild(slideWrapper);
