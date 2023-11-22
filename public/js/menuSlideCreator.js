@@ -11,19 +11,10 @@ const visibilityRowIndex = 2;
 
 // Adds a new slide to the carousel
 function newMenuSlide(slideContent) {
-    // Creates a new div for the slide and adds classes and attributes
     const slide = document.createElement("div");
-    slide.className = "carousel-item slide";
-
+    slide.className = "carousel-item slide text-light priceList";
     slide.setAttribute("data-interval", "10000"); // Sets the duration of the slide to 10 seconds
-    slide.setAttribute("style", "background-color: #190f27;");
-
-    // slideWrapper is the div that contains the slide content
-    const slideWrapper = document.createElement("div");
-    slideWrapper.className = "text-light d-none d-md-block priceList";
-    slideWrapper.setAttribute("style", "margin-top: 26vh;");
-    slideWrapper.appendChild(slideContent);
-    slide.appendChild(slideWrapper);
+    slide.append(slideContent);
 
     // Adds the slide to the carousel
     const carousel = document.getElementById("menu");
