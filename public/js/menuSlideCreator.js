@@ -141,7 +141,7 @@ function createMenuSlides(data) {
         const categoryName = menuList[nameRowIndex + productCategoryIndex * linesPerCategory][0];
 
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
-            const showProduct = productVisibilityList[itemIndex] === "TRUE" || productVisibilityList[itemIndex] === "TRUE\r";
+            const showProduct = productVisibilityList[itemIndex] === "TRUE";
             if (!showProduct) {
                 continue;
             } 
