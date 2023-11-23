@@ -36,12 +36,3 @@ function getOpeningHoursHelper(data) {
         tempClose(openingHoursList[3][1]);
     };
 }
-
-let willRefresh = false
-
-window.setInterval(function () {
-    if (isClosed) {
-        location.reload();
-    }
-    willRefresh = true
-}, 1000 * 60 * 10)
