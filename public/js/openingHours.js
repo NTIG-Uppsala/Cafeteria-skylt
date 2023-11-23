@@ -20,10 +20,7 @@ function tempClose(reason) {
 }
 
 function getOpeningHoursHelper(data) {
-    const rows = data.split("\n");
-    let rawOpeningHoursList = rows.map(row => row.split(','));
-    // This removes empty items
-    const openingHoursList = rawOpeningHoursList.map(row => row.filter(value => value !== ""));
+    const openingHoursList = parseCsvString(data);
     // Checks if the cafeteria is temporarily closed
     const isTempClose = openingHoursList[2][1];
     // Adds the opening hours to the website
@@ -32,7 +29,7 @@ function getOpeningHoursHelper(data) {
     morningHours.innerHTML = openingHoursList[0][1];
     afternoonHours.innerHTML = openingHoursList[1][1];
     // If closed, run tempClose()
-    if (isTempClose === "TRUE\r") {
+    if (isTempClose === "TRUE") {
         tempClose(openingHoursList[3][1]);
     };
 }
