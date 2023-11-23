@@ -1,4 +1,4 @@
-function helperGetImageSlide(data){
+function helperGetImageSlide(data) {
     // Hinders the creation of image slides if closed
     if (isClosed) {
         return;
@@ -20,7 +20,7 @@ function helperGetImageSlide(data){
             imageSlide.setAttribute("style", "background-color: #190f27;");
 
             const productImage = document.createElement("img");
-            productImage.className = "productSlide productImage";  
+            productImage.className = "productSlide productImage";
             productImage.setAttribute("referrerPolicy", "no-referrer"); // Enables loading of google user content images 
             productImage.setAttribute("src", `images/products/${imageList[2][currentSlide]}`);
             productImage.setAttribute("height", "700");
@@ -30,29 +30,30 @@ function helperGetImageSlide(data){
             dotImage.setAttribute("src", "images/blurredDot.png")
 
             const moneyDot = document.createElement("img")
-            moneyDot.className = "productSlide moneyDot"; 
+            moneyDot.className = "productSlide moneyDot";
             moneyDot.setAttribute("src", "images/vibrantDot.png")
 
             const imageText = document.createElement("div");
-            imageText.className =  "carousel-caption d-none d-md-block productPrice";
+            imageText.className = "carousel-caption d-none d-md-block productPrice";
 
             const product = document.createElement("p");
             product.className = "itemText";
 
             const productNode = document.createTextNode(imageList[0][currentSlide]);
-            product.append(productNode) 
+            product.append(productNode)
 
             const price = document.createElement("p");
             price.className = "price";
             const priceNode = document.createTextNode(imageList[3][currentSlide]);
             price.append(priceNode);
-            
+
             imageText.append(product);
             imageText.append(price);
             imageSlide.append(productImage);
             imageSlide.append(dotImage)
             imageSlide.append(moneyDot)
             imageSlide.append(imageText)
-            carousel.append(imageSlide)    
+            carousel.append(imageSlide)
         }
-}};
+    }
+};
