@@ -11,7 +11,7 @@ function tempClose(reason) {
     reasoning.className = "openHours";
     let reasoningText = document.createTextNode("");
     // If there are a reason write it out
-    if (reason != "\r") {
+    if (reason) {
         reasoningText = document.createTextNode('På grund av ' + reason);
     };
     reasoning.appendChild(reasoningText);
