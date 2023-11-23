@@ -1,14 +1,26 @@
+function getImageSlideArray(dataString) {
+    // This splits data into lists
+    const rows = dataString.split("\n");
+    let rawImageList = rows.map(row => row.split(','));
+
+    // This removes whitespace characters like "\r"
+    let imageList = rawImageList.map(row => row.map(value => value.trim()));
+    // This removes empty items
+    imageList = imageList.map(row => row.filter(value => value !== ""));
+
+    return imageList;
+}
+
 function helperGetImageSlide(data) {
     // Hinders the creation of image slides if closed
     if (isClosed) {
         return;
     }
-    // This splits data into lists
-    const rows = data.split("\n");
-    let rawImageList = rows.map(row => row.split(','));
-    // This removes empty items
-    const imageList = rawImageList.map(row => row.filter(value => value !== ""));
+
+    const imageList = getImageSlideArray(data);
+
     const carousel = document.getElementById("menu");
+
     // This loops through the slides 
     for (let currentSlide = 1; currentSlide < imageList[4].length; currentSlide++) {
         // Checks if slide should be shown or not 
