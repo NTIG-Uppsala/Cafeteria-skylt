@@ -10,7 +10,7 @@ function helperGetImageSlide(data) {
     // This loops through the slides 
     for (let currentSlide = 1; currentSlide < imageList[4].length; currentSlide++) {
         // Checks if slide should be shown or not 
-        if (imageList[4][currentSlide] === "TRUE" || imageList[4][currentSlide] === "TRUE\r") {
+        if (imageList[4][currentSlide] === "TRUE") {
             // Genererates HTML code for slides
             slideCreator.addSlide();
             slideCreator.addBackground();
