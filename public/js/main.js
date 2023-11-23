@@ -2,13 +2,13 @@ const queryString = window.location.search;
 
 const urlParams = new URLSearchParams(queryString);
 
-const productListPathDefault = "productList.csv";
-const imageListPathDefault = "imageList.csv";
 const openHoursListPathDefault = "openHoursList.csv";
+const imageListPathDefault = "imageList.csv";
+const productListPathDefault = "productList.csv";
 
-let productListPath = urlParams.has('products') ? urlParams.get('products') : productListPathDefault;
-let imageListPath = urlParams.has('images') ? urlParams.get('images') : imageListPathDefault;
 let openHoursListPath = urlParams.has('openHours') ? urlParams.get('openHours') : openHoursListPathDefault;
+let imageListPath = urlParams.has('images') ? urlParams.get('images') : imageListPathDefault;
+let productListPath = urlParams.has('products') ? urlParams.get('products') : productListPathDefault;
 
 // Runs getOpeningHours() with data from openHoursList.csv
 function getOpeningHours() {
