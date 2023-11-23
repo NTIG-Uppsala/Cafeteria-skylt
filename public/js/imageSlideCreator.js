@@ -1,3 +1,25 @@
+function helperGetImageSlide(data) {
+    // Hinders the creation of image slides if closed
+    if (isClosed) {
+        return;
+    }
+
+    const imageList = parseCsvString(data);
+    const slideCreator = new ImageSlideCreator()
+
+    // This loops through the slides 
+    for (let currentSlide = 1; currentSlide < imageList[4].length; currentSlide++) {
+        // Checks if slide should be shown or not 
+        if (imageList[4][currentSlide] === "TRUE" || imageList[4][currentSlide] === "TRUE\r") {
+            // Genererates HTML code for slides
+            slideCreator.addSlide();
+            slideCreator.addBackground();
+            slideCreator.addProductImage(`images/products/${imageList[2][currentSlide]}`);
+            slideCreator.addProductInfo(imageList[0][currentSlide], imageList[3][currentSlide]);
+        }
+    }
+};
+
 class ImageSlideCreator {
     constructor() {
         this.carousel = document.getElementById("menu");
@@ -48,25 +70,3 @@ class ImageSlideCreator {
         this.imageSlide.append(infoContainer)
     }
 }
-
-function helperGetImageSlide(data) {
-    // Hinders the creation of image slides if closed
-    if (isClosed) {
-        return;
-    }
-
-    const imageList = parseCsvString(data);
-    const slideCreator = new ImageSlideCreator()
-
-    // This loops through the slides 
-    for (let currentSlide = 1; currentSlide < imageList[4].length; currentSlide++) {
-        // Checks if slide should be shown or not 
-        if (imageList[4][currentSlide] === "TRUE" || imageList[4][currentSlide] === "TRUE\r") {
-            // Genererates HTML code for slides
-            slideCreator.addSlide();
-            slideCreator.addBackground();
-            slideCreator.addProductImage(`images/products/${imageList[2][currentSlide]}`);
-            slideCreator.addProductInfo(imageList[0][currentSlide], imageList[3][currentSlide]);
-        }
-    }
-};
