@@ -128,7 +128,7 @@ class MenuSlidesCreator {
     }
 }
 
-function getProductArrays(dataString){
+function getProductArrays(dataString) {
     // This splits data into an array of lines
     const rows = dataString.split("\n");
     let rawMenuList = rows.map(row => row.split(','));
@@ -169,7 +169,7 @@ function createMenuSlides(data) {
             slideCreator.addSlide();
         }
         slideCreator.addCategory(categoryName);
-        
+
         for (let itemIndex = 0; itemIndex < productVisibilityList.length; itemIndex++) {
             const productName = menuList[nameRowIndex + categoryStartRow][itemIndex];
             const productPrice = menuList[priceRowIndex + categoryStartRow][itemIndex];
