@@ -3,7 +3,7 @@ import platform
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from os import getcwd, path
 
-class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
+class NoCacheHTTPRequestHandler(SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_my_headers()        
         SimpleHTTPRequestHandler.end_headers(self)
@@ -19,6 +19,6 @@ if platform.system() == "Windows":
 elif platform.system() == "Linux":
     os.chdir("/home/pi/Git/cafeteria-display/public")
 serverAddress = ("", 8000)
-httpd = HTTPServer(serverAddress, MyHTTPRequestHandler)
+httpd = HTTPServer(serverAddress, NoCacheHTTPRequestHandler)
 print("\nThe server is open at http://127.0.0.1:8000")
 httpd.serve_forever()
