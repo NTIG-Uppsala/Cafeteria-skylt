@@ -128,19 +128,6 @@ class MenuSlidesCreator {
     }
 }
 
-function getProductArrays(dataString) {
-    // This splits data into an array of lines
-    const rows = dataString.split("\n");
-    let rawMenuList = rows.map(row => row.split(','));
-
-    // This removes whitespace characters like "\r"
-    let menuList = rawMenuList.map(row => row.map(value => value.trim()));
-    // This removes empty items
-    menuList = menuList.map(row => row.filter(value => value !== ""));
-
-    return menuList;
-}
-
 // This creates slides for the menu
 function createMenuSlides(data) {
     // Hinders the creation of menu slides if closed
@@ -148,7 +135,7 @@ function createMenuSlides(data) {
         return;
     }
 
-    const menuList = getProductArrays(data);
+    const menuList = parseCsvString(data);
     let categoryCount = menuList.length / linesPerCategory;
     let slideCreator = new MenuSlidesCreator();
 
