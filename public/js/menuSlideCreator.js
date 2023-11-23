@@ -154,11 +154,14 @@ function createMenuSlides(data) {
 
     for (let categoryIndex = 0; categoryIndex < categoryCount; categoryIndex++) {
         const categoryStartRow = categoryIndex * linesPerCategory;
-        const categoryName = menuList[nameRowIndex + categoryStartRow][0];
         const productVisibilityList = menuList[visibilityRowIndex + categoryStartRow];
-        const productCount = productVisibilityList.length - 1;
+        // Indexed by zero since the first value of a name row in the csv is the category name
+        const categoryName = menuList[nameRowIndex + categoryStartRow][0];
 
+        // Subtracted by one since the values in the first column don't include products
+        const productCount = productVisibilityList.length - 1;
         if (productCount <= 0) {
+            // Skips the category if there are no products
             continue;
         }
 
